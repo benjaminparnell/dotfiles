@@ -2,9 +2,9 @@
 
 These are my dotfiles. Currently:
 
-WM: bspwm
-Term: urxvt
-Panel: bar
+* WM: bspwm
+* Term: urxvt
+* Panel: bar
 
 Running on:
 ```sh
