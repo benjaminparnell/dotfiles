@@ -1,0 +1,5 @@
+howlong() {
+	curl -fsSL https://daycalc.appspot.com/07/01/2015 | trump '#date-info'
+}
+
+psgrep() { ps aux | grep -i $@ }
