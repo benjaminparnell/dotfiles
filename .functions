@@ -3,3 +3,5 @@ howlong() {
 }
 
 psgrep() { ps aux | grep -i $@ }
+
+hgrep() { history | grep -i $@ }

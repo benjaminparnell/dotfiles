@@ -27,9 +27,9 @@ URxvt.matcher.button: 1
 #define base0E #b294bb
 #define base0F #a3685a
 
-URxvt*foreground:   base02
-URxvt*background:   base07
-*.cursorColor:  base02
+*.foreground:   base05
+*.background:   base00
+*.cursorColor:  base05
 
 *.color0:       base00
 *.color1:       base08
