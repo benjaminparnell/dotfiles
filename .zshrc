@@ -10,7 +10,7 @@ source ~/.functions
 # time that oh-my-zsh is loaded.
 ZSH_THEME="ys"
 
-  BASE16_SHELL="$HOME/.config/base16-shell/base16-tomorrow.dark.sh"
+BASE16_SHELL="$HOME/.config/base16-shell/base16-tomorrow.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 # Uncomment the following line to use case-sensitive completion.
