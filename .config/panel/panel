@@ -16,11 +16,15 @@ xtitle -sf 'T%s' > "$PANEL_FIFO" &
 clock -sf 'S% %H:%M' > "$PANEL_FIFO" &
 
 spotify_artist() {
-  xprop -name "Spotify Premium - Linux Preview" _NET_WM_ICON_NAME | cut -d "\"" -f 2 | cut -b 11- | awk -F " – " '{print $1}'
+  if pgrep spotify > /dev/null; then
+    xprop -name "Spotify Premium - Linux Preview" _NET_WM_ICON_NAME 2>/dev/null | cut -d "\"" -f 2 | cut -b 11- | awk -F " – " '{print $1}'
+  fi
 }
 
 spotify_track() {
-  xprop -name "Spotify Premium - Linux Preview" _NET_WM_ICON_NAME | cut -d "\"" -f 2 | cut -b 11- | awk -F " – " '{print $2}'
+  if pgrep spotify > /dev/null; then
+    xprop -name "Spotify Premium - Linux Preview" _NET_WM_ICON_NAME 2>/dev/null | cut -d "\"" -f 2 | cut -b 11- | awk -F " – " '{print $2}'
+  fi
 }
 
 while true; do
