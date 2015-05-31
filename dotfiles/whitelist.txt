@@ -1,0 +1,15 @@
+.gitconfig
+.tmux.conf
+.zshrc
+.functions
+.alises
+.vimrc
+.Xresources
+.config/bspwm/bspwmrc
+.config/sxhkd/sxhkdrc
+.config/panel
+.config/dunst/dunstrc
+.config/ranger/rifle.conf
+dotfiles/whitelist.txt
+dotfiles/blacklist.txt
+dotfiles/dotfiles
