@@ -17,3 +17,5 @@ DISTRIB_DESCRIPTION="Ubuntu 15.04"
 ```
 
 ![screenshot.png](./screenshot.png)
+
+Maintained with [robertdolca/dotfiles-manager](https://github.com/robertdolca/dotfiles-manager)
