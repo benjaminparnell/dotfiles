@@ -13,5 +13,5 @@ bspc monitor -d term editor www chat music
 pkill -USR1 -x sxhkd
 
 xrdb -load ~/.Xresources &
-feh --bg-scale ~/Pictures/Wallpapers/white_mountain.jpg &
+feh --bg-scale ~/Dropbox/Wallpapers/pzrzaAL.png &
 panel &
