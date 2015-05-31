@@ -5,6 +5,7 @@ These are my dotfiles. Currently:
 * WM: bspwm
 * Term: urxvt
 * Panel: bar
+* Notification daemon: dunst
 
 Running on:
 ```sh
