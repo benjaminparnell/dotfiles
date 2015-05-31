@@ -17,7 +17,7 @@
 ###############################################################################
 
 HERE=`dirname $0`
-REPO="$HERE/files/"
+REPO="$HERE/"
 
 function homepath {
 	len=`expr ${#HOME} + 1`
