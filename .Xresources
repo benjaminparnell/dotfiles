@@ -3,9 +3,9 @@ URxvt.font: xft:inconsolata:size=14
 URxvt.scrollBar: false
 
 ! make urls clickable
-URxvt.perl-ext-common: default,matcher
-URxvt.url-launcher: /usr/bin/google-chrome
-URxvt.matcher.button: 1
+!URxvt.perl-ext-common: default,matcher
+!URxvt.url-launcher: /usr/bin/google-chrome
+!URxvt.matcher.button: 1
 
 ! Base16 Tomorrow
 ! Scheme: Chris Kempson (http://chriskempson.com)
