@@ -3,3 +3,5 @@
 	name = Ben Parnell
 [core]
 	editor = vim
+[push]
+	default = simple
