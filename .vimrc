@@ -44,8 +44,7 @@ set encoding=utf-8
 set colorcolumn=80
 
 " show invisible characters
-"set list
-"set listchars=eol:¬
+"set list set listchars=eol:¬
 
 " turn off swapfiles
 set noswapfile
@@ -82,4 +81,23 @@ autocmd FileAppendPre  * :call TrimWhiteSpace()
 autocmd FilterWritePre * :call TrimWhiteSpace()
 autocmd BufWritePre    * :call TrimWhiteSpace()
 
-
+" Current plugins installed via pathogen
+"ag.vim
+"base16-vim
+"ctrlp.vim
+"emmet-vim
+"gist-vim
+"goyo.vim
+"mustache
+"nerdcommenter
+"nerdtree
+"seoul256.vim
+"supertab
+"vim-easymotion
+"vim-fugitive
+"vim-gitgutter
+"vim-go
+"vim-jade
+"vim-javascript
+"vim-json
+"vim-markdown
