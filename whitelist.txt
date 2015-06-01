@@ -2,7 +2,7 @@
 .tmux.conf
 .zshrc
 .functions
-.alises
+.aliases
 .vimrc
 .Xresources
 .config/bspwm/bspwmrc

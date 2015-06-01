@@ -1,11 +1,6 @@
-URxvt.font: xft:inconsolata:size=14
-
-URxvt.scrollBar: false
-
-! make urls clickable
-!URxvt.perl-ext-common: default,matcher
-!URxvt.url-launcher: /usr/bin/google-chrome
-!URxvt.matcher.button: 1
+Xft*antialias: true
+Xft*dpi: 96
+xterm*faceName: Inconsolata:pixelsize=18
 
 ! Base16 Tomorrow
 ! Scheme: Chris Kempson (http://chriskempson.com)

@@ -6,6 +6,9 @@ filetype plugin indent on
 set background=dark
 colo seoul256
 
+" Needed to make my colorscheme work in tmux
+set t_ut=
+
 " turn line numbering on
 set number
 

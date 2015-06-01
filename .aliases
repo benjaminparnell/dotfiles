@@ -1,0 +1,6 @@
+alias tmux='tmux -2'
+
+alias lock='dm-tool lock'
+
+# tig aliases
+alias ts='tig status'
