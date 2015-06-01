@@ -4,9 +4,7 @@ filetype plugin indent on
 
 " color scheme
 set background=dark
-let base16colorspace=256  " Access colors present in 256 colorspace
-let g:base16_shell_path="/home/ben/.config/base16-shell"
-colorscheme base16-tomorrow
+colo seoul256
 
 " turn line numbering on
 set number
