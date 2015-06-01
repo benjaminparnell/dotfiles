@@ -70,6 +70,9 @@ let g:NERDTreeMapPreview="<F11>"
 " emmet keymaps
 let g:user_emmet_leader_key='<C-Z>'
 
+" turn off markdown folding. literally what.
+let g:vim_markdown_folding_disabled=1
+
 au FileType go nmap <leader>i <Plug>(go-info)
 
 " Auto remove whitespace on write
