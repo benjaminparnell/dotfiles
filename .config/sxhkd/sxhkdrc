@@ -80,10 +80,14 @@ super + Return
 	xterm
 
 super + space
-	dmenu_run -i -p "Run > " \
+	dmenu_run -i -r -p ">" \
                -sb '#9255a8' \
                -nb '#ffffff' \
                -fn 'Inconsolata-15' \
+               -x 480 \
+               -y 250 \
+               -w 960 \
+               -h 10 \
                -l 10
 
 # screenshot hotkeys
