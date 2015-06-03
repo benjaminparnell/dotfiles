@@ -13,7 +13,7 @@ mkfifo "$PANEL_FIFO"
 bspc config top_padding $PANEL_HEIGHT
 bspc control --subscribe > "$PANEL_FIFO" &
 xtitle -sf 'T%s' > "$PANEL_FIFO" &
-clock -sf 'S% %H:%M' > "$PANEL_FIFO" &
+clock -sf 'S%  %H:%M ' > "$PANEL_FIFO" &
 
 spotify_artist() {
   if pgrep spotify > /dev/null; then
@@ -35,6 +35,6 @@ done &
 
 . panel_colors
 
-cat "$PANEL_FIFO" | panel_bar | lemonbar -g x$PANEL_HEIGHT -f "$PANEL_FONT_FAMILY" -F "$COLOR_FOREGROUND" -B "$COLOR_BACKGROUND" &
+cat "$PANEL_FIFO" | panel_bar | lemonbar -g x$PANEL_HEIGHT -f "$PANEL_FONT_FAMILY" -f "-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*" -F "$COLOR_FOREGROUND" -B "$COLOR_BACKGROUND" &
 
 wait
