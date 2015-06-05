@@ -3,7 +3,7 @@
 These are my dotfiles. Currently:
 
 * WM: bspwm
-* Term: urxvt
+* Term: xterm
 * Panel: bar
 * Notification daemon: dunst
 
