@@ -82,8 +82,8 @@ super + Return
 super + space
 	dmenu_run -i -r -p ">" \
                -sb '#9255a8' \
-               -nb '#ffffff' \
-               -fn 'Inconsolata-15' \
+               -nb '#1d1f21' \
+               -fn 'terminus' \
                -x 480 \
                -y 250 \
                -w 960 \
