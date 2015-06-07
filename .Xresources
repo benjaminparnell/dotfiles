@@ -1,5 +1,9 @@
 Xft*antialias: true
 Xft*dpi: 96
+
+URxvt.scrollBar: false
+URxvt.font: xft:inconsolata:size=14
+
 xterm*faceName: Inconsolata:pixelsize=18
 
 ! Base16 Tomorrow
