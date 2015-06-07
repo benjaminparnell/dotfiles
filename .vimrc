@@ -1,4 +1,28 @@
-execute pathogen#infect()
+" vim-plug
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'junegunn/seoul256.vim'
+Plug 'junegunn/vim-easy-align'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'plasticboy/vim-markdown'
+Plug 'rking/ag.vim'
+Plug 'kien/ctrlp.vim'
+Plug 'mattn/emmet-vim'
+Plug 'junegunn/goyo.vim'
+Plug 'ervandew/supertab'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'juvenn/mustache.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'digitaltoad/vim-jade'
+Plug 'elzr/vim-json'
+Plug 'pangloss/vim-javascript'
+Plug 'fatih/vim-go'
+
+call plug#end()
+
 syntax on
 filetype plugin indent on
 
