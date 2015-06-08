@@ -107,6 +107,17 @@ alt + shift + 5
 super + shift + equal
   dm-tool lock
 
+# spotify hotkeys
+# play/pause
+shift + @F2
+  sp play
+
+shift + @F3
+  sp next
+
+shift + @F4
+  sp prev
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
