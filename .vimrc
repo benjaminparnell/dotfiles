@@ -20,6 +20,7 @@ Plug 'digitaltoad/vim-jade'
 Plug 'elzr/vim-json'
 Plug 'pangloss/vim-javascript'
 Plug 'fatih/vim-go'
+Plug 'terryma/vim-expand-region'
 
 call plug#end()
 
