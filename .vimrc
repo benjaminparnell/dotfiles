@@ -84,8 +84,36 @@ set showcmd
 set cryptmethod=blowfish
 
 " keymaps
+
+" faster than :w
+nnoremap <Leader>w :w<CR>
+
+" another mapping for CtrlP
+nnoremap <Leader>o :CtrlP<CR>
+
+" copy and paste to the system clipboard
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+
+" Enter to go the end of a file, Backspace to go to the start, and <N>Enter
+" to go to line N
+nnoremap <CR> G
+nnoremap <BS> gg
+
+" select text you just pasted
+noremap gV `[v`]
+
+" sudo a write if you forgot to open a root owned file with sudo
 cmap w!! w !sudo tree > dev/null %
 
+" stop the command popup window from appearing. literally why
+map q: :q
+
+" NERDTree keymaps
 silent! nmap <C-p> :NERDTreeToggle<CR>
 silent! map <F12> :NERDTreeFind<CR>
 
@@ -94,6 +122,15 @@ let g:NERDTreeMapPreview="<F11>"
 
 " emmet keymaps
 let g:user_emmet_leader_key='<C-Z>'
+
+" EasyAlign keymaps
+vmap <Enter> <Plug>(EasyAlign)
+
+nmap ga <Plug>(EasyAlign)
+
+" vim-expand-region keymaps
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
 
 " turn off markdown folding. literally what.
 let g:vim_markdown_folding_disabled=1
@@ -112,3 +149,18 @@ autocmd FileAppendPre  * :call TrimWhiteSpace()
 autocmd FilterWritePre * :call TrimWhiteSpace()
 autocmd BufWritePre    * :call TrimWhiteSpace()
 
+" misc things
+
+" make CtrlP faster for Git projects
+
+let g:ctrlp_use_caching = 0
+if executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor
+
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+else
+  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+  let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
+    \ }
+endif
