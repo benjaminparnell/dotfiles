@@ -88,8 +88,21 @@ set cryptmethod=blowfish
 " faster than :w
 nnoremap <Leader>w :w<CR>
 
+" better and faster than :q
+nnoremap <Leader>q :q<CR>
+
 " another mapping for CtrlP
 nnoremap <Leader>o :CtrlP<CR>
+
+" hjkl split navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" more natural split directions
+set splitbelow
+set splitright
 
 " copy and paste to the system clipboard
 vmap <Leader>y "+y
