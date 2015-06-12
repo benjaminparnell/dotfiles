@@ -1,4 +1,6 @@
-#! /bin/sh
+#! /bin/bash
+
+source /home/benp/.config/globals
 
 if [ $(pgrep -cx panel) -gt 1 ] ; then
 	printf "%s\n" "The panel is already running." >&2
@@ -28,13 +30,14 @@ spotify_track() {
 }
 
 while true; do
-	echo "D" $(mytime) > "$PANEL_FIFO" &
+  battery_life=$(acpi -V | head -n 1 | cut -d' ' -f4)
+	echo "D" "${battery_life%?}" > "$PANEL_FIFO" &
   echo "X" $(spotify_track) - $(spotify_artist) > "$PANEL_FIFO" &
 	sleep 0.5s
 done &
 
 . panel_colors
 
-cat "$PANEL_FIFO" | panel_bar | lemonbar -g x$PANEL_HEIGHT -f "$PANEL_FONT_FAMILY" -f "-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*" -F "$COLOR_FOREGROUND" -B "$COLOR_BACKGROUND" &
+cat "$PANEL_FIFO" | panel_bar | lemonbar -g x$PANEL_HEIGHT -f "$PANEL_FONT_FAMILY" -F "$COLOR_FOREGROUND" -B "$COLOR_BACKGROUND" &
 
 wait

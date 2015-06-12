@@ -10,4 +10,5 @@
 .config/panel
 .config/dunst/dunstrc
 .config/ranger/rifle.conf
+.config/ranger/rc.conf
 scripts

@@ -1,17 +1,14 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/ben/.oh-my-zsh
+export ZSH=/home/benp/.oh-my-zsh
 
-source ~/.aliases
 source ~/.functions
+source ~/.aliases
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="ys"
-
-BASE16_SHELL="$HOME/.config/base16-shell/base16-tomorrow.dark.sh"
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -55,9 +52,8 @@ plugins=(git)
 
 # User configuration
 
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-export PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/ben/.config/panel:/usr/lib/jvm/java-8-openjdk-amd64/bin"
-export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/benp/.config/panel:/home/benp/.config/panel"
+export PATH="/usr/local/bin/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -86,7 +82,3 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-[[ -s "/home/ben/.gvm/scripts/gvm" ]] && source "/home/ben/.gvm/scripts/gvm"
-
-eval "$(rbenv init -)"
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
