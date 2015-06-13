@@ -93,15 +93,15 @@ super + space
 # screenshot hotkeys
 # fullscreen
 alt + shift + 3
-  poomf -f
+  uguush -f
 
 # selection
 alt + shift + 4
-  poomf -s
+  uguush -s
 
 # current window
 alt + shift + 5
-  poomf -w
+  uguush -w
 
 # go to lightdm lock screen
 super + shift + equal
