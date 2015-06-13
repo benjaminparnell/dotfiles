@@ -1,7 +1,7 @@
 [user]
 	email = benjaminparnell.94@gmail.com
 	name = Ben Parnell
-[core]
-	editor = vim
 [push]
 	default = simple
+[core]
+	editor = vim
