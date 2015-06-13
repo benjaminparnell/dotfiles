@@ -2,6 +2,66 @@ howlong() {
 	curl -fsSL https://daycalc.appspot.com/07/01/2015 | trump '#date-info'
 }
 
+# grep shorthands
 psgrep() { ps aux | grep -i $@ }
-
 hgrep() { history | grep -i $@ }
+
+# find shorthand
+function f() {
+    find . -name "$1"
+}
+
+# Create a new directory and enter it
+function md() {
+  mkdir -p "$@" && cd "$@"
+}
+
+# Create a git.io short URL
+function gitio() {
+  if [ -z "${1}" -o -z "${2}" ]; then
+    echo "Usage: \`gitio slug url\`"
+    return 1
+  fi
+  curl -i http://git.io/ -F "url=${2}" -F "code=${1}"
+}
+
+# Copy w/ progress
+cp_p () {
+  rsync -WavP --human-readable --progress $1 $2
+}
+
+# get gzipped size
+function gz() {
+  echo "orig size    (bytes): "
+  cat "$1" | wc -c
+  echo "gzipped size (bytes): "
+  gzip -c "$1" | wc -c
+}
+
+# All the dig info
+function digga() {
+  dig +nocmd "$1" any +multiline +noall +answer
+}
+
+# Escape UTF-8 characters into their 3-byte format
+function escape() {
+  printf "\\\x%s" $(printf "$@" | xxd -p -c1 -u)
+  echo # newline
+}
+
+# Decode \x{ABCD}-style Unicode escape sequences
+function unidecode() {
+  perl -e "binmode(STDOUT, ':utf8'); print \"$@\""
+  echo # newline
+}
+
+# `v` with no arguments opens the current directory in Vim, otherwise opens the
+# given location
+function v() {
+  if [ $# -eq 0 ]; then
+    vim .
+  else
+    vim "$@"
+  fi
+}
+
