@@ -1,4 +1,5 @@
 .gitconfig
+.xinitrc
 .tmux.conf
 .zshrc
 .functions
