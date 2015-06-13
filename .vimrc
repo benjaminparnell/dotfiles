@@ -21,6 +21,7 @@ Plug 'elzr/vim-json'
 Plug 'pangloss/vim-javascript'
 Plug 'fatih/vim-go'
 Plug 'terryma/vim-expand-region'
+Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
 
@@ -177,3 +178,5 @@ else
     \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
     \ }
 endif
+
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
