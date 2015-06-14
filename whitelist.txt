@@ -6,6 +6,7 @@
 .aliases
 .vimrc
 .Xresources
+.config/globals
 .config/bspwm/bspwmrc
 .config/sxhkd/sxhkdrc
 .config/panel

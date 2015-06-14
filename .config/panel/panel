@@ -31,13 +31,13 @@ spotify_track() {
 
 while true; do
   battery_life=$(acpi -V | head -n 1 | cut -d' ' -f4)
-	echo "D" "${battery_life%?}" > "$PANEL_FIFO" &
-  echo "X" $(spotify_track) - $(spotify_artist) > "$PANEL_FIFO" &
+	echo "D" " ${battery_life%?}" > "$PANEL_FIFO" &
+  echo "X"  $(spotify_track) - $(spotify_artist) > "$PANEL_FIFO" &
 	sleep 0.5s
 done &
 
 . panel_colors
 
-cat "$PANEL_FIFO" | panel_bar | lemonbar -g x$PANEL_HEIGHT -f "$PANEL_FONT_FAMILY" -F "$COLOR_FOREGROUND" -B "$COLOR_BACKGROUND" &
+cat "$PANEL_FIFO" | panel_bar | lemonbar -g x$PANEL_HEIGHT -f "$PANEL_FONT_FAMILY" -f "$PANEL_FONT_FAMILY_2" -F "$COLOR_FOREGROUND" -B "$COLOR_BACKGROUND" &
 
 wait
