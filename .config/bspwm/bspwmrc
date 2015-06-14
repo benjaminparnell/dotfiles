@@ -10,4 +10,6 @@ bspc config focus_by_distance   true
 
 bspc monitor -d term editor www chat music
 
+bspc rule -a Google-chrome-stable desktop=www
+
 panel &
