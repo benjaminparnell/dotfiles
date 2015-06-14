@@ -83,3 +83,4 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[[ -s "/home/benp/.gvm/scripts/gvm" ]] && source "/home/benp/.gvm/scripts/gvm"
