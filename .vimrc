@@ -22,6 +22,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'fatih/vim-go'
 Plug 'terryma/vim-expand-region'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'scrooloose/syntastic'
 
 call plug#end()
 
@@ -164,6 +165,10 @@ autocmd FilterWritePre * :call TrimWhiteSpace()
 autocmd BufWritePre    * :call TrimWhiteSpace()
 
 " misc things
+
+" setup linters
+
+let g:syntastic_javascript_checkers = ['jshint', 'jscs']
 
 " make CtrlP faster for Git projects
 
