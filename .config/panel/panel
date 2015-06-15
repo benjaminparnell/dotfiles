@@ -31,8 +31,10 @@ spotify_track() {
 
 while true; do
   battery_life=$(acpi -V | head -n 1 | cut -d' ' -f4)
+  wifi_network=$(iwconfig wlan0 | head -n 1 | cut -d' ' -f9 | cut -d'"' -f2)
 	echo "D" " ${battery_life%?}" > "$PANEL_FIFO" &
   echo "X"  $(spotify_track) - $(spotify_artist) > "$PANEL_FIFO" &
+  echo "I" " ${wifi_network}" > "$PANEL_FIFO" &
 	sleep 0.5s
 done &
 
