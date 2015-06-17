@@ -1,5 +1,5 @@
 [global]
-    font = Monospace 8
+    font = Terminus 9
     allow_markup = yes
     format = "<b>%s</b>\n%b"
     sort = yes
@@ -18,7 +18,7 @@
     line_height = 0
     separator_height = 2
     padding = 12
-    horizontal_padding = 8
+    horizontal_padding = 12
     separator_color = frame
     startup_notification = false
     dmenu = /usr/bin/dmenu -p dunst
@@ -35,16 +35,16 @@
     context = ctrl+shift+period
 
 [urgency_low]
-    background = "#FFFFFF"
-    foreground = "#000000"
+    background = "#1d1f21"
+    foreground = "#FFFFFF"
     timeout = 10
 
 [urgency_normal]
-    background = "#FFFFFF"
-    foreground = "#000000"
+    background = "#1d1f21"
+    foreground = "#FFFFFF"
     timeout = 10
 
 [urgency_critical]
-    background = "#FFFFFF"
-    foreground = "#000000"
+    background = "#1d1f21"
+    foreground = "#FFFFFF"
     timeout = 0
