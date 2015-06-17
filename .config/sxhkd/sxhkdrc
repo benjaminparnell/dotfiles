@@ -118,6 +118,23 @@ shift + F3
 shift + F4
   sp prev
 
+# brightness up and down
+XF86MonBrightnessUp
+  xbacklight -inc 20
+
+XF86MonBrightnessDown
+  xbacklight -dec 20
+
+# volume controls
+XF86AudioMute
+  amixer -q -D pulse sset Master toggle
+
+XF86AudioRaiseVolume
+  amixer -D pulse sset Master 5%+
+
+XF86AudioLowerVolume
+  amixer -D pulse sset Master 5%-
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
