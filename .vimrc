@@ -127,7 +127,7 @@ nnoremap <BS> gg
 noremap gV `[v`]
 
 " sudo a write if you forgot to open a root owned file with sudo
-cmap w!! w !sudo tree > /dev/null %
+cmap w!! w !sudo tee > /dev/null %
 
 " stop the command popup window from appearing. literally why
 map q: :q
