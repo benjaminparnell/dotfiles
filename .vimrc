@@ -28,6 +28,7 @@ Plug 'tpope/vim-surround'
 Plug 'mattn/webapi-vim'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'tpope/vim-git'
+Plug 'tpope/vim-eunuch'
 
 call plug#end()
 
