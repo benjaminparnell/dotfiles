@@ -69,7 +69,7 @@ let html_no_rendering=1
 
 set bs=2
 
-" set tabs to 4 spaces
+" set tabs to 2 spaces
 set expandtab
 set tabstop=2
 set softtabstop=2
@@ -201,6 +201,8 @@ endif
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 " rainbow_parentheses.vim
+
+let g:rainbow#pairs = [['(', ')'], ['[', ']']]
 
 " activation based on filetype
 augroup rainbow_lisp
