@@ -29,6 +29,13 @@ Plug 'mattn/webapi-vim'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-eunuch'
+Plug 'mhinz/vim-startify'
+Plug 'ZoomWin'
+Plug 'grep.vim'
+Plug 'moll/vim-node'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'kshenoy/vim-signature'
+Plug 'octol/vim-cpp-enhanced-highlight'
 
 call plug#end()
 
@@ -99,8 +106,8 @@ nnoremap <Leader>w :w<CR>
 " better and faster than :q
 nnoremap <Leader>q :q<CR>
 
-" another mapping for CtrlP
-nnoremap <Leader>o :CtrlP<CR>
+" map ZoomWin
+nnoremap <Leader>o :ZoomWin<CR>
 
 " hjkl split navigation
 nnoremap <C-J> <C-W><C-J>
@@ -211,3 +218,6 @@ augroup rainbow_lisp
   autocmd!
   autocmd FileType lisp,clojure,scheme RainbowParentheses
 augroup END
+
+" vim-startify
+let g:startify_custom_header = map(split(system('fortune | cowsay -f tux'), '\n'), '" ". v:val') + ['','']
