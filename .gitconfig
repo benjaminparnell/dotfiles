@@ -5,3 +5,5 @@
 	default = simple
 [core]
 	editor = vim
+[github]
+	user = benjaminparnell

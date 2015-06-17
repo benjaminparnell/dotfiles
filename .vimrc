@@ -23,6 +23,9 @@ Plug 'fatih/vim-go'
 Plug 'terryma/vim-expand-region'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'scrooloose/syntastic'
+Plug 'mattn/gist-vim'
+Plug 'tpope/vim-surround'
+Plug 'mattn/webapi-vim'
 
 call plug#end()
 
@@ -164,11 +167,19 @@ autocmd FileAppendPre  * :call TrimWhiteSpace()
 autocmd FilterWritePre * :call TrimWhiteSpace()
 autocmd BufWritePre    * :call TrimWhiteSpace()
 
+" run a command and then paste its output into a vim buffer
+noremap <Leader>nex :new<CR>!!
+
 " misc things
 
 " setup linters
 
 let g:syntastic_javascript_checkers = ['jshint', 'jscs']
+
+" gist-vim
+
+let g:gist_clip_command = 'xclip -selection clipboard'
+let g:gist_detect_filetype = 1
 
 " make CtrlP faster for Git projects
 
