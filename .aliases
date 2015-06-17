@@ -2,6 +2,8 @@ alias tmux='tmux -2'
 
 alias lock='dm-tool lock'
 
+alias wicdc='wicd-curses'
+
 # tig aliases
 alias ts='tig status'
 
@@ -9,6 +11,5 @@ alias ts='tig status'
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 
 # IP addresses
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ifconfig getifaddr en1"
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
