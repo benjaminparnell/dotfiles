@@ -26,6 +26,7 @@ Plug 'scrooloose/syntastic'
 Plug 'mattn/gist-vim'
 Plug 'tpope/vim-surround'
 Plug 'mattn/webapi-vim'
+Plug 'junegunn/rainbow_parentheses.vim'
 
 call plug#end()
 
@@ -170,9 +171,9 @@ autocmd BufWritePre    * :call TrimWhiteSpace()
 " run a command and then paste its output into a vim buffer
 noremap <Leader>nex :new<CR>!!
 
-" misc things
+" plugin config
 
-" setup linters
+" syntastic
 
 let g:syntastic_javascript_checkers = ['jshint', 'jscs']
 
@@ -181,7 +182,7 @@ let g:syntastic_javascript_checkers = ['jshint', 'jscs']
 let g:gist_clip_command = 'xclip -selection clipboard'
 let g:gist_detect_filetype = 1
 
-" make CtrlP faster for Git projects
+" CtrlP
 
 let g:ctrlp_use_caching = 0
 if executable('ag')
@@ -195,4 +196,14 @@ else
     \ }
 endif
 
+" editorconfig-vim
+
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+
+" rainbow_parentheses.vim
+
+" activation based on filetype
+augroup rainbow_lisp
+  autocmd!
+  autocmd FileType lisp,clojure,scheme RainbowParentheses
+augroup END
