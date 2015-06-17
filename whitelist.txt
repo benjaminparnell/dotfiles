@@ -13,4 +13,5 @@
 .config/dunst/dunstrc
 .config/ranger/rifle.conf
 .config/ranger/rc.conf
+.config/spotify/Users/bento863-user/prefs
 scripts
