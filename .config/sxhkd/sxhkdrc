@@ -109,13 +109,13 @@ super + shift + equal
 
 # spotify hotkeys
 # play/pause
-shift + @F2
+shift + F2
   sp play
 
-shift + @F3
+shift + F3
   sp next
 
-shift + @F4
+shift + F4
   sp prev
 
 # make sxhkd reload its configuration files:
