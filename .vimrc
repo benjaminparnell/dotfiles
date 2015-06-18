@@ -36,6 +36,8 @@ Plug 'moll/vim-node'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'copypath.vim'
+Plug 'terryma/vim-multiple-cursors'
 
 call plug#end()
 
@@ -221,3 +223,6 @@ augroup END
 
 " vim-startify
 let g:startify_custom_header = map(split(system('fortune | cowsay -f tux'), '\n'), '" ". v:val') + ['','']
+
+" copypath.vim
+let g:copypath_copy_to_unnamed_register = 1
