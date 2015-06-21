@@ -54,7 +54,7 @@ plugins=(git)
 # User configuration
 
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/benp/.config/panel:/home/benp/.config/panel"
-export PATH="/usr/local/bin/bin:$PATH"
+export PATH="/usr/local/bin/bin:/home/benp/npm-global/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -86,3 +86,4 @@ eval `keychain --eval id_rsa`
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [[ -s "/home/benp/.gvm/scripts/gvm" ]] && source "/home/benp/.gvm/scripts/gvm"
+
