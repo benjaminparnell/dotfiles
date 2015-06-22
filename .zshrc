@@ -53,7 +53,7 @@ plugins=(git)
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/benp/.config/panel:/home/benp/.config/panel"
+export PATH="$HOME/.rbenv/bin:/usr/local/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/benp/.config/panel:/home/benp/.config/panel"
 export PATH="/usr/local/bin/bin:/home/benp/npm-global/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -84,6 +84,6 @@ eval `keychain --quiet --eval id_rsa`
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+eval "$(rbenv init -)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [[ -s "/home/benp/.gvm/scripts/gvm" ]] && source "/home/benp/.gvm/scripts/gvm"
-
