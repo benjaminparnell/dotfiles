@@ -4,6 +4,11 @@ Xft*dpi: 96
 URxvt.scrollBar: false
 URxvt.font: xft:inconsolata:size=14
 
+! clickable urls in urxvt
+URxvt.perl-ext-common: default,matcher
+URxvt.urlLauncher: google-chrome
+URxvt.matcher.button: 1
+
 xterm*faceName: Inconsolata:pixelsize=18
 
 ! Base16 Tomorrow
