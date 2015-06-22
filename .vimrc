@@ -167,18 +167,6 @@ let g:vim_markdown_folding_disabled=1
 
 au FileType go nmap <leader>i <Plug>(go-info)
 
-" Auto remove whitespace on write
-function! TrimWhiteSpace()
-  %s/\s\+$//e
-endfunction
-
-nnoremap <silent> <Leader>rts :call TrimWhiteSpace()<CR>
-
-autocmd FileWritePre   * :call TrimWhiteSpace()
-autocmd FileAppendPre  * :call TrimWhiteSpace()
-autocmd FilterWritePre * :call TrimWhiteSpace()
-autocmd BufWritePre    * :call TrimWhiteSpace()
-
 " run a command and then paste its output into a vim buffer
 noremap <Leader>nex :new<CR>!!
 
