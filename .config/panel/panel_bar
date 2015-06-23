@@ -22,6 +22,7 @@ while read -r line ; do
 		D*)
 			# battery output
       battery_life=$(acpi | head -n 1 | cut -d' ' -f4 | sed 's/.$//' | sed 's/.$//')
+      status=$(acpi | head -n 1 | cut -d' ' -f3)
       battery_colour=$COLOR_DATE_BG
 
       if [ $battery_life -lt 41 ]; then
@@ -30,6 +31,10 @@ while read -r line ; do
 
       if [ $battery_life -lt 21 ]; then
         battery_colour=$COLOR_BATTERY_RED
+      fi
+
+      if [ $status = "Charging," ]; then
+        battery_colour=$COLOR_BATTERY_GREEN
       fi
 
 			battery="%{F$COLOR_FOCUSED_OCCUPIED_FG}%{B${battery_colour}} ${line#?}  %{B-}%{F-}"
