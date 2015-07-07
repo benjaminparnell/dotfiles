@@ -38,6 +38,7 @@ Plug 'kshenoy/vim-signature'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'copypath.vim'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'freitass/todo.txt-vim'
 
 call plug#end()
 
@@ -46,10 +47,14 @@ filetype plugin indent on
 
 " color scheme
 set background=dark
+let g:seoul256_background = 234
 colo seoul256
 
 " Needed to make my colorscheme work in tmux
 set t_ut=
+
+" set the working dir to the current one. Makes <ctrl-x><ctrl-f> behave
+set autochdir
 
 " turn line numbering on
 set number
@@ -174,7 +179,7 @@ noremap <Leader>nex :new<CR>!!
 
 " syntastic
 
-let g:syntastic_javascript_checkers = ['jshint', 'jscs']
+"let g:syntastic_javascript_checkers = ['jshint', 'jscs']
 
 " gist-vim
 
