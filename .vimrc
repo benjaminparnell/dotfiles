@@ -39,6 +39,7 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'copypath.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'freitass/todo.txt-vim'
+Plug 'rstacruz/vim-closer'
 
 call plug#end()
 
@@ -104,6 +105,13 @@ set cryptmethod=blowfish
 
 " keymaps
 
+" run a command and then paste its output into a vim buffer
+noremap <Leader>nex :new<CR>!!
+
+" switch between tabs
+noremap <Leader>nt :bn<CR>
+noremap <Leader>pv :bp<CR>
+
 " faster than :w
 nnoremap <Leader>w :w<CR>
 
@@ -168,9 +176,6 @@ vmap <C-v> <Plug>(expand_region_shrink)
 let g:vim_markdown_folding_disabled=1
 
 au FileType go nmap <leader>i <Plug>(go-info)
-
-" run a command and then paste its output into a vim buffer
-noremap <Leader>nex :new<CR>!!
 
 " plugin config
 
