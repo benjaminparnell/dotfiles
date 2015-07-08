@@ -5,6 +5,9 @@ xset fp rehash
 # set wallpaper
 feh --bg-scale ~/Pictures/Wallpapers/wheat.jpg
 
+# touchpad config
+synclient PalmDetect=1 PalmMinWidth=5 PalmMinZ=20
+
 # fire up the wm
 sxhkd &
 exec bspwm
