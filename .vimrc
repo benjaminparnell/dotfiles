@@ -53,9 +53,6 @@ colo seoul256
 " Needed to make my colorscheme work in tmux
 set t_ut=
 
-" set the working dir to the current one. Makes <ctrl-x><ctrl-f> behave
-set autochdir
-
 " turn line numbering on
 set number
 
