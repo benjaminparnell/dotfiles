@@ -40,6 +40,7 @@ Plug 'copypath.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'freitass/todo.txt-vim'
 Plug 'rstacruz/vim-closer'
+Plug 'wavded/vim-stylus'
 
 call plug#end()
 
