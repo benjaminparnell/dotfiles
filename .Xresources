@@ -2,7 +2,7 @@ Xft*antialias: true
 Xft*dpi: 96
 
 URxvt.scrollBar: false
-URxvt.font: xft:SourceCodePro-Regular:size=15
+URxvt.font: xft:SourceCodePro-Regular:size=13
 
 ! clickable urls in urxvt
 URxvt.perl-ext-common: default,matcher
