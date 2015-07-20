@@ -41,6 +41,10 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'freitass/todo.txt-vim'
 Plug 'rstacruz/vim-closer'
 Plug 'wavded/vim-stylus'
+Plug 'junegunn/limelight.vim'
+Plug 'tpope/vim-endwise'
+Plug 'tyru/open-browser.vim'
+Plug 'tyru/open-browser-github.vim'
 
 call plug#end()
 
