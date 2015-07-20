@@ -8,6 +8,10 @@ feh --bg-scale ~/Dropbox/Wallpapers/tokyo.jpg
 # touchpad config
 synclient PalmDetect=1 PalmMinWidth=5 PalmMinZ=20
 
+
+xsetroot -cursor_name left_ptr &
+# makes the cursor vanish after a period of inactivity
+unclutter -grab -noevents -root &
 # fire up the wm
 sxhkd &
 exec bspwm
