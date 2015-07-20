@@ -1,5 +1,16 @@
-howlong() {
-	curl -fsSL https://daycalc.appspot.com/07/01/2015 | trump '#date-info'
+docked() {
+  # tell x to output to both monitors
+  xrandr --output HDMI1 --auto --above eDP1
+  # focus the new monitor and rename it and rename the old monitor
+  bspc monitor -f eDP1
+  bspc monitor -n laptop
+  bspc monitor -f HDMI1
+  bspc monitor -n monitor
+  # give the new monitor some desktops
+  bspc monitor HDMI1 -d term www editor misc
+  # restart panel so it displays monitors properly
+  killall panel
+  panel &
 }
 
 # grep shorthands
@@ -65,3 +76,18 @@ function v() {
   fi
 }
 
+# backup the enterprise!
+function beammeup() {
+  sudo rsync -av --delete --progress -e ssh \
+    --exclude=node_modules/ \
+    --exclude=/benp/Videos/ \
+    --exclude=/benp/Music/ \
+    --exclude=/benp/Dropbox/ \
+    --exclude=/benp/.cache/ \
+    --exclude=/benp/.rbenv/ \
+    --exclude=/benp/.npm/ \
+    --exclude=/benp/.gvm/ \
+    --exclude=/benp/.config/google-chrome/ \
+    --exclude=/benp/.config/chromium/ \
+    /home/benp root@192.168.1.118:/volume1/NetBackup/enterprise/
+}
