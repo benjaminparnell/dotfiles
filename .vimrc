@@ -123,6 +123,9 @@ nnoremap <Leader>w :w<CR>
 " better and faster than :q
 nnoremap <Leader>q :q<CR>
 
+" list buffers
+nnoremap <Leader>ls :ls<CR>
+
 " map ZoomWin
 nnoremap <Leader>o :ZoomWin<CR>
 
