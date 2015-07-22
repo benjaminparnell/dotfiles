@@ -91,3 +91,7 @@ function beammeup() {
     --exclude=/benp/.config/chromium/ \
     /home/benp root@192.168.1.118:/volume1/NetBackup/enterprise/
 }
+
+function buildWiki() {
+  cd ~/clock/wiki && git pull origin master && find ./ -name "*.md" -type f -exec sh -c 'mkdir -p ./build/$(dirname "$0") && marked "$0" > ./build/"${0%.md}.html"' {} \; && cd -
+}
