@@ -3,7 +3,7 @@ xset +fp /usr/share/fonts/local
 xset fp rehash
 
 # set wallpaper
-feh --bg-scale ~/Dropbox/Wallpapers/ibm.jpg
+feh --bg-scale ~/Dropbox/Wallpapers/nyc.jpg
 
 # touchpad config
 synclient PalmDetect=1 PalmMinWidth=5 PalmMinZ=20
