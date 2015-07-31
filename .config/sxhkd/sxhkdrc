@@ -103,10 +103,6 @@ alt + shift + 4
 alt + shift + 5
   uguush -w
 
-# go to lightdm lock screen
-super + shift + equal
-  dm-tool lock
-
 # spotify hotkeys
 # play/pause
 shift + F2
