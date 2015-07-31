@@ -38,13 +38,15 @@ Plug 'kshenoy/vim-signature'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'copypath.vim'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'freitass/todo.txt-vim'
 Plug 'rstacruz/vim-closer'
 Plug 'wavded/vim-stylus'
 Plug 'junegunn/limelight.vim'
 Plug 'tpope/vim-endwise'
 Plug 'tyru/open-browser.vim'
 Plug 'tyru/open-browser-github.vim'
+Plug 'xero/sourcerer.vim'
+Plug 'fmoralesc/vim-pad'
+Plug 'geekjuice/vim-mocha'
 
 call plug#end()
 
@@ -185,7 +187,15 @@ let g:vim_markdown_folding_disabled=1
 
 au FileType go nmap <leader>i <Plug>(go-info)
 
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+
 " plugin config
+
+" vim-pad
+let g:pad#dir = '/home/benp/vim-pad/'
 
 " syntastic
 
