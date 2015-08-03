@@ -47,6 +47,7 @@ Plug 'tyru/open-browser-github.vim'
 Plug 'xero/sourcerer.vim'
 Plug 'fmoralesc/vim-pad'
 Plug 'geekjuice/vim-mocha'
+Plug 'w0ng/vim-hybrid'
 
 call plug#end()
 
@@ -54,9 +55,8 @@ syntax on
 filetype plugin indent on
 
 " color scheme
-set background=dark
-let g:seoul256_background = 234
-colo seoul256
+let g:hybrid_use_Xresources = 1
+colorscheme hybrid
 
 " Needed to make my colorscheme work in tmux
 set t_ut=
