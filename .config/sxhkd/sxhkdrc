@@ -76,9 +76,6 @@ super + @button{1-3}
 # wm independent hotkeys
 #
 
-super + q
-  slimlock
-
 super + Return
 	urxvt
 
