@@ -112,6 +112,9 @@ set cryptmethod=blowfish
 
 " keymaps
 
+" kill buffers
+noremap <Leader>bd :bd<CR>
+
 " run a command and then paste its output into a vim buffer
 noremap <Leader>nex :new<CR>!!
 
@@ -196,6 +199,7 @@ map <Leader>a :call RunAllSpecs()<CR>
 
 " vim-pad
 let g:pad#dir = '/home/benp/vim-pad/'
+let g:pad#window_height = 16
 
 " syntastic
 
