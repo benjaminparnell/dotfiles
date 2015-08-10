@@ -89,6 +89,8 @@ function beammeup() {
     --exclude=/benp/.gvm/ \
     --exclude=/benp/.config/google-chrome/ \
     --exclude=/benp/.config/chromium/ \
+    --exclude=/benp/Downloads/ \
+    --exclude=/benp/VirtualBox\ VMs/ \
     /home/benp root@192.168.1.118:/volume1/NetBackup/enterprise/
 }
 
