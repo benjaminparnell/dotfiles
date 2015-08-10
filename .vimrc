@@ -48,6 +48,9 @@ Plug 'xero/sourcerer.vim'
 Plug 'fmoralesc/vim-pad'
 Plug 'geekjuice/vim-mocha'
 Plug 'w0ng/vim-hybrid'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'tommcdo/vim-exchange'
 
 call plug#end()
 
@@ -166,6 +169,9 @@ cmap w!! w !sudo tee > /dev/null %
 " stop the command popup window from appearing. literally why
 map q: :q
 
+" toggle for spell checking
+map <F5> :setlocal spell! spelllang=en_gb<CR> 
+
 " NERDTree keymaps
 silent! nmap <C-p> :NERDTreeToggle<CR>
 silent! map <F12> :NERDTreeFind<CR>
@@ -240,3 +246,4 @@ let g:copypath_copy_to_unnamed_register = 1
 
 " NERDTree
 let NERDTreeShowHidden=1
+
