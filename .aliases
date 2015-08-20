@@ -13,3 +13,5 @@ alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date
 # IP addresses
 alias localip="ifconfig getifaddr en1"
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
+
+alias vtop="vtop --theme becca"

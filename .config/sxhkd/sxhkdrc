@@ -72,6 +72,9 @@ super + button{1-3}
 super + @button{1-3}
 	bspc pointer -u
 
+super + q
+  bspc desktop -f next.free
+
 #
 # wm independent hotkeys
 #

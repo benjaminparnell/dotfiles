@@ -48,9 +48,9 @@ Plug 'xero/sourcerer.vim'
 Plug 'fmoralesc/vim-pad'
 Plug 'geekjuice/vim-mocha'
 Plug 'w0ng/vim-hybrid'
-Plug 'vim-pandoc/vim-pandoc'
-Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'tommcdo/vim-exchange'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'chrisbra/Colorizer'
 
 call plug#end()
 
