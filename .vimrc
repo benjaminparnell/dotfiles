@@ -1,15 +1,39 @@
-" vim-plug
-
 call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/vim-easy-align'
+
+  vmap <Enter> <Plug>(EasyAlign)
+  nmap ga <Plug>(EasyAlign)
+
 Plug 'scrooloose/nerdtree'
+
+  let NERDTreeShowHidden=1
+  
+  silent! nmap <C-p> :NERDTreeToggle<CR>
+  silent! map <F12> :NERDTreeFind<CR>
+
+  let g:NERDTreeMapActivateNode="<F12>"
+  let g:NERDTreeMapPreview="<F11>"
+
 Plug 'scrooloose/nerdcommenter'
 Plug 'plasticboy/vim-markdown'
+
+  let g:vim_markdown_folding_disabled=1
+
 Plug 'rking/ag.vim'
 Plug 'kien/ctrlp.vim'
+
+  let g:ctrlp_use_caching = 0
+  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+  let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
+    \ }
+
 Plug 'mattn/emmet-vim'
+
+  let g:user_emmet_leader_key='<C-Z>'
+
 Plug 'junegunn/goyo.vim'
 Plug 'ervandew/supertab'
 Plug 'Lokaltog/vim-easymotion'
@@ -20,23 +44,57 @@ Plug 'digitaltoad/vim-jade'
 Plug 'elzr/vim-json'
 Plug 'pangloss/vim-javascript'
 Plug 'fatih/vim-go'
+
+  au FileType go nmap <leader>i <Plug>(go-info)
+
 Plug 'terryma/vim-expand-region'
+
+  vmap v <Plug>(expand_region_expand)
+  vmap <C-v> <Plug>(expand_region_shrink)
+
 Plug 'editorconfig/editorconfig-vim'
+
+  let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+
 Plug 'scrooloose/syntastic'
+
+  let g:syntastic_javascript_checkers = ['jshint', 'jscs']
+
 Plug 'mattn/gist-vim'
+
+  let g:gist_clip_command = 'xclip -selection clipboard'
+  let g:gist_detect_filetype = 1
+
 Plug 'tpope/vim-surround'
 Plug 'mattn/webapi-vim'
 Plug 'junegunn/rainbow_parentheses.vim'
+
+  let g:rainbow#pairs = [['(', ')'], ['[', ']']]
+
+  augroup rainbow_lisp
+    autocmd!
+    autocmd FileType lisp,clojure,scheme RainbowParentheses
+  augroup END
+
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-eunuch'
 Plug 'mhinz/vim-startify'
+
+  let g:startify_custom_header = map(split(system('fortune | cowsay -f tux'), '\n'), '" ". v:val') + ['','']
+
 Plug 'ZoomWin'
+
+  nnoremap <Leader>o :ZoomWin<CR>
+
 Plug 'grep.vim'
 Plug 'moll/vim-node'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'copypath.vim'
+  
+  let g:copypath_copy_to_unnamed_register = 1
+
 Plug 'terryma/vim-multiple-cursors'
 Plug 'rstacruz/vim-closer'
 Plug 'wavded/vim-stylus'
@@ -46,7 +104,17 @@ Plug 'tyru/open-browser.vim'
 Plug 'tyru/open-browser-github.vim'
 Plug 'xero/sourcerer.vim'
 Plug 'fmoralesc/vim-pad'
+
+  let g:pad#dir = '/home/benp/vim-pad/'
+  let g:pad#window_height = 16
+
 Plug 'geekjuice/vim-mocha'
+
+  map <Leader>t :call RunCurrentSpecFile()<CR>
+  map <Leader>s :call RunNearestSpec()<CR>
+  map <Leader>l :call RunLastSpec()<CR>
+  map <Leader>a :call RunAllSpecs()<CR>
+
 Plug 'w0ng/vim-hybrid'
 Plug 'tommcdo/vim-exchange'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -80,16 +148,14 @@ set number
 
 " turn on ruler
 set noruler
-set nocursorline
 
 " status line config
 set laststatus=2
 set statusline=%f\ -
 set statusline+=%{fugitive#statusline()}
 
-let loaded_matchparen=1
-set noshowmatch
 set nocursorcolumn
+set cursorline
 set scrolljump=8
 let html_no_rendering=1
 
@@ -136,9 +202,6 @@ nnoremap <Leader>q :q<CR>
 " list buffers
 nnoremap <Leader>ls :ls<CR>
 
-" map ZoomWin
-nnoremap <Leader>o :ZoomWin<CR>
-
 " hjkl split navigation
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -173,79 +236,4 @@ map q: :q
 
 " toggle for spell checking
 map <F5> :setlocal spell! spelllang=en_gb<CR> 
-
-" NERDTree keymaps
-silent! nmap <C-p> :NERDTreeToggle<CR>
-silent! map <F12> :NERDTreeFind<CR>
-
-let g:NERDTreeMapActivateNode="<F12>"
-let g:NERDTreeMapPreview="<F11>"
-
-" emmet keymaps
-let g:user_emmet_leader_key='<C-Z>'
-
-" EasyAlign keymaps
-vmap <Enter> <Plug>(EasyAlign)
-
-nmap ga <Plug>(EasyAlign)
-
-" vim-expand-region keymaps
-vmap v <Plug>(expand_region_expand)
-vmap <C-v> <Plug>(expand_region_shrink)
-
-" turn off markdown folding. literally what.
-let g:vim_markdown_folding_disabled=1
-
-au FileType go nmap <leader>i <Plug>(go-info)
-
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
-
-" plugin config
-
-" vim-pad
-let g:pad#dir = '/home/benp/vim-pad/'
-let g:pad#window_height = 16
-
-" syntastic
-
-"let g:syntastic_javascript_checkers = ['jshint', 'jscs']
-
-" gist-vim
-
-let g:gist_clip_command = 'xclip -selection clipboard'
-let g:gist_detect_filetype = 1
-
-" CtrlP
-
-let g:ctrlp_use_caching = 0
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-let g:ctrlp_prompt_mappings = {
-  \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
-  \ }
-
-" editorconfig-vim
-
-let g:EditorConfig_exclude_patterns = ['fugitive://.*']
-
-" rainbow_parentheses.vim
-
-let g:rainbow#pairs = [['(', ')'], ['[', ']']]
-
-" activation based on filetype
-augroup rainbow_lisp
-  autocmd!
-  autocmd FileType lisp,clojure,scheme RainbowParentheses
-augroup END
-
-" vim-startify
-let g:startify_custom_header = map(split(system('fortune | cowsay -f tux'), '\n'), '" ". v:val') + ['','']
-
-" copypath.vim
-let g:copypath_copy_to_unnamed_register = 1
-
-" NERDTree
-let NERDTreeShowHidden=1
 
