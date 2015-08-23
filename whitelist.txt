@@ -16,3 +16,4 @@
 .config/ranger/rc.conf
 .config/spotify/Users/bento863-user/prefs
 scripts
+.bin
