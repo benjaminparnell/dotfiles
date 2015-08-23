@@ -9,7 +9,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'scrooloose/nerdtree'
 
   let NERDTreeShowHidden=1
-  
+
   silent! nmap <C-p> :NERDTreeToggle<CR>
   silent! map <F12> :NERDTreeFind<CR>
 
@@ -134,54 +134,81 @@ colorscheme hybrid
 " Needed to make my colorscheme work in tmux
 set t_ut=
 
-" turn line numbering on
-set number
-
-" map leader
 let mapleader=" "
 
-" autoindent on when programming
-set noai
-
-" turn on line numbers
 set number
+set numberwidth=5
 
-" turn on ruler
-set noruler
+set ruler
+set cursorline
 
 " status line config
 set laststatus=2
 set statusline=%f\ -
 set statusline+=%{fugitive#statusline()}
 
-set nocursorcolumn
-set cursorline
 set scrolljump=8
 let html_no_rendering=1
-
-set bs=2
-
-" set tabs to 2 spaces
+set backspace=2   " make backspace behave
 set expandtab
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set encoding=utf-8
 set colorcolumn=80
+set incsearch     " use incremental search
+set noswapfile    " turn off swapfiles
+set autowrite     " automatically :write before running commands
+set showcmd       " show incomplete commands
 
-" show invisible characters
-"set list set listchars=eol:¬
-
-" turn off swapfiles
-set noswapfile
-
-" show incomplete commands
-set showcmd
+" display extra whitespace
+set list listchars=tab:»·,trail:·,nbsp:·
 
 " set encryption type to something stronger
 set cryptmethod=blowfish
 
+" autocomplete with dictionary words when spell check is on
+set complete+=kspell
+
+augroup vimrcEx
+  autocmd!
+
+  " When editing a file, always jump to the last known cursor position.
+  " Don't do it for commit messages, when the position is invalid, or when
+  " inside an event handler (happens when dropping a file on gvim).
+  autocmd BufReadPost *
+    \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
+
+  " Set syntax highlighting for specific file types
+  autocmd BufRead,BufNewFile Appraisals set filetype=ruby
+  autocmd BufRead,BufNewFile *.md set filetype=markdown
+
+  " Enable spellchecking for Markdown
+  autocmd FileType markdown setlocal spell
+
+  " Automatically wrap at 80 characters for Markdown
+  autocmd BufRead,BufNewFile *.md setlocal textwidth=80
+
+  " Automatically wrap at 72 characters and spell check git commit messages
+  autocmd FileType gitcommit setlocal textwidth=72
+  autocmd FileType gitcommit setlocal spell
+
+  " Allow stylesheets to autocomplete hyphenated words
+  autocmd FileType css,scss,sass setlocal iskeyword+=-
+augroup END
+
 " keymaps
+
+" get off my lawn
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
+
+" Treat <li> and <p> tags like the block tags they are
+let g:html_indent_tags = 'li\|p'
 
 " kill buffers
 noremap <Leader>bd :bd<CR>
