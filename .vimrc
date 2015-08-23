@@ -51,6 +51,8 @@ Plug 'w0ng/vim-hybrid'
 Plug 'tommcdo/vim-exchange'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'chrisbra/Colorizer'
+Plug 'vim-scripts/nginx.vim'
+Plug 'leafgarland/typescript-vim'
 
 call plug#end()
 
