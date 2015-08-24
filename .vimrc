@@ -78,10 +78,6 @@ Plug 'junegunn/rainbow_parentheses.vim'
 
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-eunuch'
-Plug 'mhinz/vim-startify'
-
-  let g:startify_custom_header = map(split(system('fortune | cowsay -f tux'), '\n'), '" ". v:val') + ['','']
-
 Plug 'ZoomWin'
 
   nnoremap <Leader>o :ZoomWin<CR>
@@ -121,6 +117,9 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'chrisbra/Colorizer'
 Plug 'vim-scripts/nginx.vim'
 Plug 'leafgarland/typescript-vim'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-flagship'
 
 call plug#end()
 
@@ -144,8 +143,9 @@ set cursorline
 
 " status line config
 set laststatus=2
-set statusline=%f\ -
-set statusline+=%{fugitive#statusline()}
+set showtabline=1
+
+autocmd User Flags call Hoist("buffer", "fugitive#statusline")
 
 set scrolljump=8
 let html_no_rendering=1
