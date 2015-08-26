@@ -1,3 +1,5 @@
+let mapleader=" "
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/seoul256.vim'
@@ -132,8 +134,6 @@ colorscheme hybrid
 
 " Needed to make my colorscheme work in tmux
 set t_ut=
-
-let mapleader=" "
 
 set number
 set numberwidth=5
