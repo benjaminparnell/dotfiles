@@ -108,13 +108,13 @@ alt + shift + 5
 
 # spotify hotkeys
 # play/pause
-shift + F2
+F2
   sp play
 
-shift + F3
+F3
   sp next
 
-shift + F4
+F4
   sp prev
 
 # brightness up and down
