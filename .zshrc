@@ -87,3 +87,9 @@ eval `keychain --quiet --eval id_rsa`
 eval "$(rbenv init -)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [[ -s "/home/benp/.gvm/scripts/gvm" ]] && source "/home/benp/.gvm/scripts/gvm"
+
+PERL_MB_OPT="--install_base \"/home/benp/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/benp/perl5"; export PERL_MM_OPT;
+test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
+
+unset MAILCHECK

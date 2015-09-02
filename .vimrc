@@ -12,11 +12,12 @@ Plug 'scrooloose/nerdtree'
 
   let NERDTreeShowHidden=1
 
-  silent! nmap <C-p> :NERDTreeToggle<CR>
   silent! map <F12> :NERDTreeFind<CR>
 
   let g:NERDTreeMapActivateNode="<F12>"
   let g:NERDTreeMapPreview="<F11>"
+  let g:NERDTreeWinSize=30
+
 
 Plug 'scrooloose/nerdcommenter'
 Plug 'plasticboy/vim-markdown'
@@ -24,13 +25,16 @@ Plug 'plasticboy/vim-markdown'
   let g:vim_markdown_folding_disabled=1
 
 Plug 'rking/ag.vim'
-Plug 'kien/ctrlp.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+Plug 'junegunn/fzf.vim'
 
-  let g:ctrlp_use_caching = 0
-  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-  let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
-    \ }
+  map <c-x><c-k> <Plug>(fzf-complete-word)
+  imap <c-x><c-f> <Plug>(fzf-complete-path)
+  imap <c-x><c-j> <Plug>(fzf-complete-file-ag)
+  imap <c-x><c-l> <Plug>(fzf-complete-line)
+
+  nnoremap <silent> <C-p> :Files<CR>
+  nnoremap <silent> <Leader><Enter> :Buffers<CR>
 
 Plug 'mattn/emmet-vim'
 
@@ -41,11 +45,15 @@ Plug 'ervandew/supertab'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'juvenn/mustache.vim'
 Plug 'tpope/vim-fugitive'
+
+  map <Leader>g :Gstatus<CR>gg<c-n>
+  nnoremap <Leader>d :Gdiff<CR>
+
 Plug 'airblade/vim-gitgutter'
 Plug 'digitaltoad/vim-jade'
-Plug 'elzr/vim-json'
+Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'pangloss/vim-javascript'
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'for': 'go' }
 
   au FileType go nmap <leader>i <Plug>(go-info)
 
@@ -61,6 +69,9 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'scrooloose/syntastic'
 
   let g:syntastic_javascript_checkers = ['jshint', 'jscs']
+  let g:syntastic_go_checkers = ['go', 'golint']
+  let g:syntastic_jade_checkers = ['jade_lint']
+  let g:syntastic_aggregate_errors = 1
 
 Plug 'mattn/gist-vim'
 
@@ -68,7 +79,6 @@ Plug 'mattn/gist-vim'
   let g:gist_detect_filetype = 1
 
 Plug 'tpope/vim-surround'
-Plug 'mattn/webapi-vim'
 Plug 'junegunn/rainbow_parentheses.vim'
 
   let g:rainbow#pairs = [['(', ')'], ['[', ']']]
@@ -85,12 +95,12 @@ Plug 'ZoomWin'
   nnoremap <Leader>o :ZoomWin<CR>
 
 Plug 'grep.vim'
-Plug 'moll/vim-node'
+Plug 'moll/vim-node', { 'for': 'javascript' }
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'copypath.vim'
-  
+
   let g:copypath_copy_to_unnamed_register = 1
 
 Plug 'terryma/vim-multiple-cursors'
@@ -98,13 +108,11 @@ Plug 'rstacruz/vim-closer'
 Plug 'wavded/vim-stylus'
 Plug 'junegunn/limelight.vim'
 Plug 'tpope/vim-endwise'
-Plug 'tyru/open-browser.vim'
-Plug 'tyru/open-browser-github.vim'
 Plug 'xero/sourcerer.vim'
 Plug 'fmoralesc/vim-pad'
 
   let g:pad#dir = '/home/benp/vim-pad/'
-  let g:pad#window_height = 16
+  let g:pad#window_height = 10
 
 Plug 'geekjuice/vim-mocha'
 
@@ -122,11 +130,37 @@ Plug 'leafgarland/typescript-vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-flagship'
+Plug 'gitignore'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'matze/vim-move'
+
+  let g:move_key_modifier = 'C'
+
+Plug 'AndrewRadev/splitjoin.vim'
+
+  nmap sj :SplitjoinSplit<CR>
+  nmap sk :SplitjoinJoin<CR>
+
+Plug 'tpope/vim-salve', { 'for': 'clojure' }
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+Plug 'tpope/vim-dispatch'
+
+  map <F5> :Make<CR>
+  map <F6> :Make!<CR>
+
+Plug 'tpope/vim-classpath', { 'for': ['clojure', 'java'] }
+Plug 'paredit.vim'
+
+  nnoremap <F9> :Dispatch<CR>
+
+Plug 'tpope/vim-projectionist'
+
+  " switch to the files alternate file
+  nnoremap <F10> :A<CR>
 
 call plug#end()
 
 syntax on
-filetype plugin indent on
 
 " color scheme
 let g:hybrid_use_Xresources = 1
@@ -141,14 +175,14 @@ set numberwidth=5
 set ruler
 set cursorline
 
+" for normal people
+set mouse=a
+
 " status line config
 set laststatus=2
 set showtabline=1
 
-autocmd User Flags call Hoist("buffer", "fugitive#statusline")
-
 set scrolljump=8
-let html_no_rendering=1
 set backspace=2   " make backspace behave
 set expandtab
 set tabstop=2
@@ -160,6 +194,9 @@ set incsearch     " use incremental search
 set noswapfile    " turn off swapfiles
 set autowrite     " automatically :write before running commands
 set showcmd       " show incomplete commands
+set shortmess=aIT
+set lazyredraw
+set visualbell
 
 " display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
@@ -173,6 +210,7 @@ set complete+=kspell
 augroup vimrcEx
   autocmd!
 
+  au BufWritePost vimrc,.vimrc nested if expand('%') !~ 'fugitive' | source % | endif
   " When editing a file, always jump to the last known cursor position.
   " Don't do it for commit messages, when the position is invalid, or when
   " inside an event handler (happens when dropping a file on gvim).
@@ -197,6 +235,10 @@ augroup vimrcEx
 
   " Allow stylesheets to autocomplete hyphenated words
   autocmd FileType css,scss,sass setlocal iskeyword+=-
+
+  " Setup default dispatch.vim commands
+  autocmd FileType java let b:dispatch = 'javac %'
+
 augroup END
 
 " keymaps
@@ -206,6 +248,10 @@ nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
+
+" circular window navigation
+nnoremap <tab> <C-w>w
+nnoremap <S-tab> <C-w>W
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
@@ -227,13 +273,7 @@ nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 
 " list buffers
-nnoremap <Leader>ls :ls<CR>
-
-" hjkl split navigation
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+nnoremap <Leader>ls :Buffers<CR>
 
 " more natural split directions
 set splitbelow
@@ -262,5 +302,5 @@ cmap w!! w !sudo tee > /dev/null %
 map q: :q
 
 " toggle for spell checking
-map <F5> :setlocal spell! spelllang=en_gb<CR> 
+map <F8> :setlocal spell! spelllang=en_gb<CR> 
 
