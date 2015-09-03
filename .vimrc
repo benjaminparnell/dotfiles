@@ -24,7 +24,6 @@ Plug 'plasticboy/vim-markdown'
 
   let g:vim_markdown_folding_disabled=1
 
-Plug 'rking/ag.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'junegunn/fzf.vim'
 
@@ -129,7 +128,6 @@ Plug 'vim-scripts/nginx.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-obsession'
-Plug 'tpope/vim-flagship'
 Plug 'gitignore'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'matze/vim-move'
@@ -159,6 +157,65 @@ Plug 'tpope/vim-projectionist'
   nnoremap <F10> :A<CR>
 
 Plug 'shime/vim-livedown'
+Plug 'itchyny/lightline.vim'
+
+  let g:lightline = {
+    \ 'colorscheme': 'wombat',
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
+    \ },
+    \ 'component_function': {
+    \   'modified': 'LightLineModified',
+    \   'readonly': 'LightLineReadonly',
+    \   'fugitive': 'LightLineFugitive',
+    \   'filename': 'LightLineFilename',
+    \   'fileformat': 'LightLineFileformat',
+    \   'filetype': 'LightLineFiletype',
+    \   'fileencoding': 'LightLineFileencoding',
+    \   'mode': 'LightLineMode'
+    \ }
+    \ }
+
+function! LightLineModified()
+  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
+
+function! LightLineReadonly()
+  return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? 'read only' : ''
+endfunction
+
+function! LightLineFilename()
+  return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
+        \ (&ft == 'vimfiler' ? vimfiler#get_status_string() : 
+        \  &ft == 'unite' ? unite#get_status_string() : 
+        \  &ft == 'vimshell' ? vimshell#get_status_string() :
+        \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
+        \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+endfunction
+
+function! LightLineFugitive()
+  if &ft !~? 'vimfiler\|gundo' && exists("*fugitive#head")
+    let _ = fugitive#head()
+    return strlen(_) ? _ : ''
+  endif
+  return ''
+endfunction
+
+function! LightLineFileformat()
+  return winwidth(0) > 70 ? &fileformat : ''
+endfunction
+
+function! LightLineFiletype()
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+endfunction
+
+function! LightLineFileencoding()
+  return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
+endfunction
+
+function! LightLineMode()
+  return winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
 
 call plug#end()
 
