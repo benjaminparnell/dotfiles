@@ -158,6 +158,8 @@ Plug 'tpope/vim-projectionist'
   " switch to the files alternate file
   nnoremap <F10> :A<CR>
 
+Plug 'shime/vim-livedown'
+
 call plug#end()
 
 syntax on
