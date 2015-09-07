@@ -119,10 +119,10 @@ F4
 
 # brightness up and down
 XF86MonBrightnessUp
-  xbacklight -inc 20
+  xbacklight -inc 10
 
 XF86MonBrightnessDown
-  xbacklight -dec 20
+  xbacklight -dec 10
 
 # volume controls
 XF86AudioMute
