@@ -28,7 +28,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'junegunn/fzf.vim'
 
   map <c-x><c-k> <Plug>(fzf-complete-word)
-  imap <c-x><c-f> <Plug>(fzf-complete-path)
   imap <c-x><c-j> <Plug>(fzf-complete-file-ag)
   imap <c-x><c-l> <Plug>(fzf-complete-line)
 
@@ -302,6 +301,8 @@ augroup vimrcEx
   " Setup default dispatch.vim commands
   autocmd FileType java let b:dispatch = 'javac %'
 
+  autocmd InsertEnter * let save_cwd = getcwd() | set autochdir
+  autocmd InsertLeave * set noautochdir | execute 'cd' fnameescape(save_cwd)
 augroup END
 
 " keymaps
