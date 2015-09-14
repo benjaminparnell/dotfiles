@@ -71,10 +71,11 @@ Plug 'scrooloose/syntastic'
   else
     let g:syntastic_javascript_checkers = ['standard']
   endif
-  let g:syntastic_go_checkers = ['go', 'golint']
+  let g:syntastic_go_checkers = ['golint']
   let g:syntastic_jade_checkers = ['jade_lint']
   let g:syntastic_aggregate_errors = 1
 
+Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
 
   let g:gist_clip_command = 'xclip -selection clipboard'
@@ -127,6 +128,9 @@ Plug 'w0ng/vim-hybrid'
 Plug 'tommcdo/vim-exchange'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'chrisbra/Colorizer'
+
+  let g:colorizer_auto_filetype='css,html,stylus,jade,less,sass'
+
 Plug 'vim-scripts/nginx.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'tpope/vim-unimpaired'
@@ -220,6 +224,9 @@ Plug 'itchyny/lightline.vim'
     return winwidth(0) > 60 ? lightline#mode() : ''
   endfunction
 
+Plug 'vasconcelloslf/vim-interestingwords'
+Plug 'szw/vim-g'
+
 call plug#end()
 
 syntax on
@@ -253,6 +260,8 @@ set shiftwidth=2
 set encoding=utf-8
 set colorcolumn=80
 set incsearch     " use incremental search
+set ignorecase
+set gdefault
 set noswapfile    " turn off swapfiles
 set autowrite     " automatically :write before running commands
 set showcmd       " show incomplete commands
