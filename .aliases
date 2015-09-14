@@ -1,4 +1,4 @@
-alias tmux='tmux -2'
+alias tmux='tmux -2 -f ~/.tmux.conf'
 
 alias lock='dm-tool lock'
 
