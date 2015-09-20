@@ -7,3 +7,7 @@
 	editor = vim
 [github]
 	user = benjaminparnell
+[alias]
+	lg = pretty-log
+	f = create-feature-branch
+	repo = github-repo

@@ -55,6 +55,7 @@ plugins=(git zsh-syntax-highlighting)
 
 export PATH="$HOME/.rbenv/bin:/usr/local/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/benp/.config/panel:/home/benp/.config/panel"
 export PATH="/usr/local/bin/bin:/home/benp/npm-global/bin:$PATH"
+export PATH="/home/benp/.bin/git-plugins/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
