@@ -1,13 +1,6 @@
 docked() {
   # tell x to output to both monitors
-  xrandr --output HDMI1 --auto --above eDP1
-  # focus the new monitor and rename it and rename the old monitor
-  bspc monitor -f eDP1
-  bspc monitor -n laptop
-  bspc monitor -f HDMI1
-  bspc monitor -n monitor
-  # give the new monitor some desktops
-  bspc monitor HDMI1 -d term www editor misc
+  xrandr --output HDMI1 --auto --same-as eDP1
   # restart panel so it displays monitors properly
   killall panel
   panel &
