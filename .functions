@@ -6,6 +6,15 @@ docked() {
   panel &
 }
 
+undock() {
+  # unmirror and disconnect
+  xrandr --output HDMI1 --off
+}
+
+lock() {
+  sudo vlock -an
+}
+
 # grep shorthands
 psgrep() { ps aux | grep -i $@ }
 hgrep() { history | grep -i $@ }
