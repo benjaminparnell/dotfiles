@@ -54,6 +54,11 @@ Plug 'pangloss/vim-javascript'
 Plug 'fatih/vim-go', { 'for': 'go' }
 
   au FileType go nmap <leader>i <Plug>(go-info)
+  au FileType go nmap <leader>r <Plug>(go-run)
+  au FileType go nmap <leader>t <Plug>(go-test)
+  au FileType go nmap <leader>c <Plug>(go-coverage)
+  au FileType go nmap <leader>gd <Plug>(go-doc)
+  au FileType go nmap <leader>gb <Plug>(go-doc-browser)
 
 Plug 'terryma/vim-expand-region'
 
@@ -226,6 +231,8 @@ Plug 'itchyny/lightline.vim'
 
 Plug 'vasconcelloslf/vim-interestingwords'
 Plug 'szw/vim-g'
+Plug 'garyburd/go-explorer', { 'for': 'go' }
+Plug 'nicwest/QQ.vim'
 
 call plug#end()
 
