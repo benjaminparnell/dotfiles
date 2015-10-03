@@ -96,3 +96,6 @@ PERL_MM_OPT="INSTALL_BASE=/home/benp/perl5"; export PERL_MM_OPT;
 test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
 
 unset MAILCHECK
+
+# Netbeanes needs this to run
+export _JAVA_AWT_WM_NONREPARENTING=1
