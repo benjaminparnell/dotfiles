@@ -84,7 +84,7 @@ super + Return
 
 super + space
 	dmenu_run -i -r -p ">" \
-               -sb '#9255a8' \
+               -sb '#bf7a52' \
                -nb '#1d1f21' \
                -fn 'terminus' \
                -x 480 \
@@ -96,15 +96,15 @@ super + space
 # screenshot hotkeys
 # fullscreen
 alt + shift + 3
-  uguush -f
+  uguush -o mixtape -t -f
 
 # selection
 alt + shift + 4
-  uguush -s
+  uguush -o mixtape -t -s
 
 # current window
 alt + shift + 5
-  uguush -w
+  uguush -o mixtape -t -w
 
 # spotify hotkeys
 # play/pause
