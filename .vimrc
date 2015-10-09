@@ -239,8 +239,8 @@ call plug#end()
 syntax on
 
 " color scheme
-let g:hybrid_use_Xresources = 1
-colorscheme hybrid
+let g:seoul256_background = 234
+colorscheme seoul256
 
 " Needed to make my colorscheme work in tmux
 set t_ut=
