@@ -158,6 +158,8 @@ Plug 'tpope/vim-dispatch'
   map <F5> :Make<CR>
   map <F6> :Make!<CR>
 
+  autocmd FileType javascript let b:dispatch = 'npm test'
+
 Plug 'tpope/vim-classpath', { 'for': ['clojure', 'java'] }
 Plug 'paredit.vim'
 
