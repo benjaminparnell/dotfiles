@@ -1,0 +1,56 @@
+#!/bin/bash
+
+# Mostly stolen from https://github.com/jfrazelle/dotfiles/blob/master/.dockerfunc
+# All credit goes to her!
+
+# helper functions
+dcleanup() {
+  docker rm -v $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
+  docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
+}
+
+del_stopped(){
+  local name=$1
+  local state=$(docker inspect --format "{{.State.Running}}" $name 2>/dev/null)
+
+  if [[ "$state" == "false" ]]; then
+    docker rm $name
+  fi
+}
+
+relies_on(){
+  local containers=$@
+
+  for container in $containers; do
+    local state=$(docker inspect --format "{{.State.Running}}" $container 2>/dev/null)
+
+    if [[ "$state" == "false" ]] || [[ "$state" == "" ]]; then
+      echo "$container is not running, starting it for you."
+      $container
+    fi
+  done
+}
+
+# commands to run containers
+
+rainbowstream() {
+  docker run -it --rm \
+    -v /etc/localtime:/etc/localtime:ro \
+    -v $HOME/.rainbow_oauth:/root/.rainbow_oauth \
+    -v $HOME/.rainbow_config.json:/root/.rainbow_config.json \
+    --name rainbowstream \
+    jess/rainbowstream
+}
+
+pandoc() {
+  local file=${@: -1}
+  local lfile=$(readlink -m "$(pwd)/${file}")
+  local rfile=$(readlink -m "/$(basename $file)")
+  local args=${@:1:${#@}-1}
+
+  docker run --rm \
+    -v ${lfile}:${rfile} \
+    -v /tmp:/tmp \
+    --name pandoc \
+    jess/pandoc ${args} ${rfile}
+}

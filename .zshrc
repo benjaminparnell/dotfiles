@@ -3,6 +3,7 @@
 export ZSH=/home/benp/.oh-my-zsh
 
 source ~/.functions
+source ~/.dockerfunctions
 source ~/.aliases
 
 # Set name of the theme to load.

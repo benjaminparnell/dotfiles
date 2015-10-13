@@ -18,3 +18,4 @@
 scripts
 .bin
 .lein/profiles.clj
+.dockerfunctions
