@@ -19,7 +19,8 @@ Plug 'scrooloose/nerdtree'
   let g:NERDTreeWinSize=30
 
 
-Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-jdaddy'
 Plug 'plasticboy/vim-markdown'
 
   let g:vim_markdown_folding_disabled=1
@@ -98,12 +99,7 @@ Plug 'junegunn/rainbow_parentheses.vim'
 
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-eunuch'
-Plug 'ZoomWin'
-
-  nnoremap <Leader>o :ZoomWin<CR>
-
 Plug 'grep.vim'
-Plug 'moll/vim-node', { 'for': 'javascript' }
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'octol/vim-cpp-enhanced-highlight'
@@ -116,20 +112,18 @@ Plug 'rstacruz/vim-closer'
 Plug 'wavded/vim-stylus'
 Plug 'junegunn/limelight.vim'
 Plug 'tpope/vim-endwise'
-Plug 'xero/sourcerer.vim'
 Plug 'fmoralesc/vim-pad'
 
   let g:pad#dir = '/home/benp/vim-pad/'
   let g:pad#window_height = 10
 
-Plug 'geekjuice/vim-mocha'
+Plug 'geekjuice/vim-spec'
 
   map <Leader>t :call RunCurrentSpecFile()<CR>
   map <Leader>s :call RunNearestSpec()<CR>
   map <Leader>l :call RunLastSpec()<CR>
   map <Leader>a :call RunAllSpecs()<CR>
 
-Plug 'w0ng/vim-hybrid'
 Plug 'tommcdo/vim-exchange'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'chrisbra/Colorizer'
@@ -231,10 +225,9 @@ Plug 'itchyny/lightline.vim'
     return winwidth(0) > 60 ? lightline#mode() : ''
   endfunction
 
-Plug 'vasconcelloslf/vim-interestingwords'
 Plug 'szw/vim-g'
 Plug 'garyburd/go-explorer', { 'for': 'go' }
-Plug 'nicwest/QQ.vim'
+Plug 'derekwyatt/vim-scala'
 
 call plug#end()
 
@@ -272,7 +265,6 @@ set incsearch     " use incremental search
 set ignorecase
 set gdefault
 set noswapfile    " turn off swapfiles
-set autowrite     " automatically :write before running commands
 set showcmd       " show incomplete commands
 set shortmess=aIT
 set lazyredraw
@@ -318,9 +310,6 @@ augroup vimrcEx
 
   " Setup default dispatch.vim commands
   autocmd FileType java let b:dispatch = 'javac %'
-
-  autocmd InsertEnter * let save_cwd = getcwd() | set autochdir
-  autocmd InsertLeave * set noautochdir | execute 'cd' fnameescape(save_cwd)
 augroup END
 
 " keymaps
