@@ -98,5 +98,7 @@ test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
 
 unset MAILCHECK
 
+export KEYTIMEOUT=1
+
 # Netbeanes needs this to run
 export _JAVA_AWT_WM_NONREPARENTING=1

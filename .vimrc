@@ -270,11 +270,11 @@ set shortmess=aIT
 set lazyredraw
 set visualbell
 
+" faster mode switching
+set timeoutlen=1000 ttimeoutlen=0
+
 " display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
-
-" set encryption type to something stronger
-set cryptmethod=blowfish
 
 " autocomplete with dictionary words when spell check is on
 set complete+=kspell
