@@ -147,6 +147,12 @@ Plug 'AndrewRadev/splitjoin.vim'
 
 Plug 'tpope/vim-salve', { 'for': 'clojure' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+
+" Reload the current namespace
+au FileType clojure nmap <Leader>r :Require<CR>
+" Reload all namespaces
+au FileType clojure nmap <Leader>R :Require!<CR>
+
 Plug 'tpope/vim-dispatch'
 
   map <F5> :Make<CR>
@@ -228,6 +234,9 @@ Plug 'itchyny/lightline.vim'
 Plug 'szw/vim-g'
 Plug 'garyburd/go-explorer', { 'for': 'go' }
 Plug 'derekwyatt/vim-scala'
+Plug 'mxw/vim-jsx'
+Plug 'guns/vim-slamhound'
+Plug 'venantius/vim-eastwood'
 
 call plug#end()
 
