@@ -1,5 +1,11 @@
 let mapleader=" "
 
+if empty(glob("~/.vim/autoload/plug.vim"))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+  \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  auto VimEnter * PlugInstall
+endif
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/seoul256.vim'
