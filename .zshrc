@@ -54,9 +54,9 @@ plugins=(git zsh-syntax-highlighting)
 
 # User configuration
 
-export PATH="$HOME/.rbenv/bin:/usr/local/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:~/.config/panel:~/.config/panel"
-export PATH="/usr/local/bin/bin:~/npm-global/bin:$PATH"
-export PATH="~/.bin/git-plugins/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:/usr/local/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/.config/panel"
+export PATH="/usr/local/bin/bin:$HOME/npm-global/bin:$PATH"
+export PATH="$HOME/.bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
