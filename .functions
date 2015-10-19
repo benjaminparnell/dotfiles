@@ -93,7 +93,7 @@ function beammeup() {
     --exclude=/benp/.config/chromium/ \
     --exclude=/benp/Downloads/ \
     --exclude=/benp/VirtualBox\ VMs/ \
-    /home/benp root@192.168.1.118:/volume1/NetBackup/enterprise/
+    ~ root@192.168.1.118:/volume1/NetBackup/enterprise/
 }
 
 function buildWiki() {

@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh installation.
 
-export ZSH=/home/benp/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 source ~/.functions
 source ~/.dockerfunctions
@@ -54,9 +54,9 @@ plugins=(git zsh-syntax-highlighting)
 
 # User configuration
 
-export PATH="$HOME/.rbenv/bin:/usr/local/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/benp/.config/panel:/home/benp/.config/panel"
-export PATH="/usr/local/bin/bin:/home/benp/npm-global/bin:$PATH"
-export PATH="/home/benp/.bin/git-plugins/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:/usr/local/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:~/.config/panel:~/.config/panel"
+export PATH="/usr/local/bin/bin:~/npm-global/bin:$PATH"
+export PATH="~/.bin/git-plugins/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -90,10 +90,10 @@ eval `keychain --quiet --eval id_rsa`
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 eval "$(rbenv init -)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[[ -s "/home/benp/.gvm/scripts/gvm" ]] && source "/home/benp/.gvm/scripts/gvm"
+[[ -s "~/.gvm/scripts/gvm" ]] && source "~/.gvm/scripts/gvm"
 
-PERL_MB_OPT="--install_base \"/home/benp/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/benp/perl5"; export PERL_MM_OPT;
+PERL_MB_OPT="--install_base \"~/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=~/perl5"; export PERL_MM_OPT;
 test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
 
 unset MAILCHECK

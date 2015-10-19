@@ -1,6 +1,6 @@
 #!/bin/sh
 # taken from http://unix.stackexchange.com/a/84438
-export XAUTHORITY=/home/benp/.Xauthority
+export XAUTHORITY=~/.Xauthority
 export DISPLAY=":0"
 
 low_threshold=10
