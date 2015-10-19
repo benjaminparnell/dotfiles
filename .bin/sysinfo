@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# benp 2015
+#
+# display some system info
+
+pkgcount=$(dpkg --list | wc -l)
+kernel=$(uname -r)
+wm=$(wmctrl -m | grep ^Name: | tr " " "\n" | tail -n 1)
+font=$(cat ~/.Xresources | grep ^URxvt.font | awk -F ' ' '{print $2}' | awk -F ':' '{print $2}')
+uptime=$(uptime --pretty)
+shell=$(echo $SHELL)
+
+echo "kernel:    $kernel"
+echo "packages:  $pkgcount"
+echo "wm:        $wm"
+echo "shell:     $shell"
+echo "font:      $font"
+echo "uptime:    $uptime"
