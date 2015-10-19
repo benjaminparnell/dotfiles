@@ -31,7 +31,7 @@ spotify_track() {
 
 while true; do
   battery_life=$(acpi -V | head -n 1 | cut -d' ' -f4)
-  wifi=$(~/.config/panel/panel_wifi)
+  wifi=$(panel_wifi)
   vpn=$(ls /var/run/openvpn 2>/dev/null | grep .pid | head -n 1 | xargs -I {} basename {} .pid)
 	echo "D" " ${battery_life%?}" > "$PANEL_FIFO" &
   echo "X"  $(spotify_track) - $(spotify_artist) > "$PANEL_FIFO" &
