@@ -120,7 +120,7 @@ Plug 'junegunn/limelight.vim'
 Plug 'tpope/vim-endwise'
 Plug 'fmoralesc/vim-pad'
 
-  let g:pad#dir = '/home/benp/vim-pad/'
+  let g:pad#dir = '~/vim-pad/'
   let g:pad#window_height = 10
 
 Plug 'geekjuice/vim-spec'
