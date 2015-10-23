@@ -390,3 +390,6 @@ map q: :q
 " toggle for spell checking
 map <F8> :setlocal spell! spelllang=en_gb<CR> 
 
+" resize splits
+nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
