@@ -241,8 +241,7 @@ Plug 'szw/vim-g'
 Plug 'garyburd/go-explorer', { 'for': 'go' }
 Plug 'derekwyatt/vim-scala'
 Plug 'mxw/vim-jsx'
-Plug 'guns/vim-slamhound'
-Plug 'venantius/vim-eastwood'
+Plug 'elixir-lang/vim-elixir'
 
 call plug#end()
 
