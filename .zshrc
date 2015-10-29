@@ -102,3 +102,5 @@ export KEYTIMEOUT=1
 
 # Netbeanes needs this to run
 export _JAVA_AWT_WM_NONREPARENTING=1
+# Hook for desk activation
+[ ! -z "$DESK_ENV" ] && source "$DESK_ENV"
