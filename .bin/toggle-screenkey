@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ "$(pgrep screenkey)" ]; then
+  pkill -x screenkey
+else
+  screenkey
+fi
