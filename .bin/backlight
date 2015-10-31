@@ -1,0 +1,16 @@
+#!/bin/bash
+#
+# Ben Parnell
+# Wrap xbacklight
+
+test "$1" = "-h" && echo "usage `basename $0` [+|-]" && exit 0
+
+level() {
+  printf "%.2f\n" $(xbacklight)
+}
+
+case $1 in
+  +) xbacklight -inc 5 >/dev/null;;
+  -) xbacklight -dec 5 >/dev/null;;
+  level) level;;
+esac

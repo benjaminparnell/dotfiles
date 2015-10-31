@@ -122,20 +122,24 @@ F4
 
 # brightness up and down
 XF86MonBrightnessUp
-  xbacklight -inc 10
+  ~/.bin/backlight +; \
+  ~/.bin/popup backlight: $(~/.bin/backlight level)
 
 XF86MonBrightnessDown
-  xbacklight -dec 10
+  ~/.bin/backlight -; \
+  ~/.bin/popup backlight: $(~/.bin/backlight level)
 
 # volume controls
 XF86AudioMute
-  amixer -q -D pulse sset Master toggle
+  ~/.bin/volume !
 
 XF86AudioRaiseVolume
-  amixer -D pulse sset Master 5%+
+  ~/.bin/volume +; \
+  ~/.bin/popup volume: $(~/.bin/volume level)
 
 XF86AudioLowerVolume
-  amixer -D pulse sset Master 5%-
+  ~/.bin/volume -; \
+  ~/.bin/popup volume: $(~/.bin/volume level)
 
 # make sxhkd reload its configuration files:
 super + Escape

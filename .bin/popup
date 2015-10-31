@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# source normal panel colors
+source ~/.config/panel/panel_colors
+source ~/.config/globals
+
+# how long should the popup remain?
+duration=3
+
+# define geometry
+barx=1600
+bary=50
+barw=300
+
+baropt='-g ${barw}x${barh}+${barx}+${bary}'
+barh=40
+
+(echo "   $@"; sleep ${duration}) | lemonbar -g ${barw}x${barh}+${barx}+${bary} -f "$PANEL_FONT_FAMILY" -F "$FFFFFF" -B "$COLOR_WIFI_BG"

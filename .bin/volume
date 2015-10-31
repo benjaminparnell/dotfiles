@@ -1,0 +1,24 @@
+#!/bin/sh
+#
+# z3bra - (c) wtfpl 2014
+# Manage ALSA Master channel
+
+test "$1" = "-h" && echo "usage `basename $0` [+|-|!]" && exit 0
+
+level() {
+    amixer -D pulse get Master | sed -n 's/^.*\[\([0-9]\+%\).*$/\1/p' | uniq
+}
+
+state() {
+    amixer -D pulse get Master | sed -n 's/^.*\[\(o[nf]\+\)]$/\1/p' | uniq
+}
+
+test $# -eq 0 && echo "`level` `state`" && exit 0
+
+case $1 in
+    +)      amixer -D pulse sset Master 5%+ >/dev/null;;
+    -)      amixer -D pulse sset Master 5%- >/dev/null;;
+    !)      amixer -q -D pulse sset Master toggle >/dev/null;;
+    state|level) $1;;
+    *)    amixer set Master $1 >/dev/null;;
+esac
