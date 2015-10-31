@@ -184,6 +184,9 @@ Plug 'mxw/vim-jsx'
 Plug 'elixir-lang/vim-elixir'
 Plug 'tpope/vim-flagship'
 Plug 'tpope/vim-repeat'
+Plug 'ryanss/vim-hackernews'
+
+  nnoremap <Leader>hn :HackerNews<CR>
 
 call plug#end()
 
@@ -313,11 +316,6 @@ nmap <Leader>p "+p
 nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
-
-" Enter to go the end of a file, Backspace to go to the start, and <N>Enter
-" to go to line N
-nnoremap <CR> G
-nnoremap <BS> gg
 
 " select text you just pasted
 noremap gV `[v`]
