@@ -1,5 +1,6 @@
 xrdb -merge ~/.Xresources
 xset +fp /usr/share/fonts/local
+xset +fp $HOME/.fonts
 xset fp rehash
 
 # set wallpaper
