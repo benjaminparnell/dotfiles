@@ -4,6 +4,7 @@
 #
 # display some system info
 
+source /etc/os-release
 pkgcount=$(dpkg --list | wc -l)
 kernel=$(uname -r)
 wm=$(wmctrl -m | grep ^Name: | tr " " "\n" | tail -n 1)
@@ -12,6 +13,7 @@ uptime=$(uptime --pretty)
 shell=$(echo $SHELL)
 nodeversion=$(node --version)
 
+echo "os:        $PRETTY_NAME"
 echo "kernel:    $kernel"
 echo "packages:  $pkgcount"
 echo "wm:        $wm"
