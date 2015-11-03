@@ -13,7 +13,6 @@ bspc config remove_disabled_monitor true
 
 bspc monitor -d term editor www chat music misc
 
-bspc rule -a feh manage=off
 bspc rule -a Screenkey manage=off
 
 killall panel
