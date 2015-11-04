@@ -15,7 +15,7 @@ mkfifo "$PANEL_FIFO"
 bspc config top_padding $PANEL_HEIGHT
 bspc control --subscribe > "$PANEL_FIFO" &
 xtitle -sf 'T%s' > "$PANEL_FIFO" &
-clock -sf 'S%  %a %H:%M ' > "$PANEL_FIFO" &
+clock -sf 'S %a %H:%M'> "$PANEL_FIFO" &
 
 spotify_artist() {
   if pgrep spotify > /dev/null; then
@@ -33,9 +33,9 @@ while true; do
   battery_life=$(acpi -V | head -n 1 | cut -d' ' -f4)
   wifi=$(panel_wifi)
   vpn=$(ls /var/run/openvpn 2>/dev/null | grep .pid | head -n 1 | xargs -I {} basename {} .pid)
-	echo "D" " ${battery_life%?}" > "$PANEL_FIFO" &
-  echo "X"  $(spotify_track) - $(spotify_artist) > "$PANEL_FIFO" &
-  echo "I" " ${wifi}" > "$PANEL_FIFO" &
+	echo "D" "${BATTERY_ICON} ${battery_life%?}" > "$PANEL_FIFO" &
+  echo "X" ${SPOTIFY_ICON} $(spotify_track) - $(spotify_artist)> "$PANEL_FIFO" &
+  echo "I" "${WIFI_ICON} ${wifi}" > "$PANEL_FIFO" &
   echo "V" "${vpn}" > "$PANEL_FIFO" &
 	sleep 0.5s
 done &

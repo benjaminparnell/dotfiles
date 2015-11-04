@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ESSID=$(iwgetid -r)
+ESSID=$(essid)
 # Taken from https://github.com/windelicato/dotfiles/blob/master/.config/bspwm/panel/panel_wifi
 QUAL=`iwconfig wlan0 | grep 'Link Quality=' | awk '{gsub(/[=/]/," "); print $3}'`
 MAX=`iwconfig wlan0 | grep 'Link Quality=' | awk '{gsub(/[=/]/," "); print $4}'`

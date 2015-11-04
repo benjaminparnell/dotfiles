@@ -1,5 +1,10 @@
 export PANEL_FIFO="/tmp/panel-fifo"
-export PANEL_FONT_FAMILY="-*-terminus-*-*-*-*-*-*-*-*-*-*-*"
-export PANEL_FONT_FAMILY_2="-*-stlarch-medium-r-*-*-*-*-*-*-*"
+export PANEL_FONT_FAMILY="DejaVuSansMono:size=10"
+export PANEL_FONT_FAMILY_2="FontAwesome:size=11"
 export PANEL_HEIGHT=30
+export SPOTIFY_ICON=$(echo -e '\uf1bc')
+export WIFI_ICON=$(echo -e '\uf1eb')
+export CLOCK_ICON=$(echo -e '\uf017')
+export BATTERY_ICON=$(echo -e '\uf240')
+
 
