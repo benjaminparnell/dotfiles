@@ -143,15 +143,9 @@ Plug 'leafgarland/typescript-vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-obsession'
 Plug 'gitignore'
-Plug 'nathanaelkane/vim-indent-guides'
 Plug 'matze/vim-move'
 
   let g:move_key_modifier = 'C'
-
-Plug 'AndrewRadev/splitjoin.vim'
-
-  nmap sj :SplitjoinSplit<CR>
-  nmap sk :SplitjoinJoin<CR>
 
 Plug 'tpope/vim-salve', { 'for': 'clojure' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
@@ -165,14 +159,12 @@ Plug 'tpope/vim-dispatch'
 
   map <F5> :Make<CR>
   map <F6> :Make!<CR>
+  nnoremap <F9> :Dispatch<CR>
 
   autocmd FileType javascript let b:dispatch = 'npm test'
 
 Plug 'tpope/vim-classpath', { 'for': ['clojure', 'java'] }
 Plug 'paredit.vim'
-
-  nnoremap <F9> :Dispatch<CR>
-
 Plug 'tpope/vim-projectionist'
 
   " switch to the files alternate file
@@ -189,6 +181,9 @@ Plug 'tpope/vim-repeat'
 Plug 'ryanss/vim-hackernews'
 
   nnoremap <Leader>hn :HackerNews<CR>
+
+Plug 'junegunn/vim-pseudocl'
+Plug 'junegunn/vim-oblique'
 
 call plug#end()
 
@@ -229,7 +224,8 @@ set noswapfile    " turn off swapfiles
 set showcmd       " show incomplete commands
 set shortmess=aIT
 set lazyredraw
-set visualbell
+set visualbell    " no beeps
+set autoread      " read in files when they change outside vim
 
 " faster mode switching
 set timeoutlen=1000 ttimeoutlen=0
@@ -267,13 +263,15 @@ augroup vimrcEx
   autocmd FileType gitcommit setlocal spell
 
   " Allow stylesheets to autocomplete hyphenated words
-  autocmd FileType css,scss,sass setlocal iskeyword+=-
+  autocmd FileType css,scss,sass,stylus setlocal iskeyword+=-
 
   " Setup default dispatch.vim commands
   autocmd FileType java let b:dispatch = 'javac %'
 augroup END
 
 " keymaps
+
+map ; :
 
 " get off my lawn
 nnoremap <Left> :echoe "Use h"<CR>
