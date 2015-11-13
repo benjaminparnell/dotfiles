@@ -11,3 +11,12 @@
 	lg = pretty-log
 	f = create-feature-branch
 	repo = github-repo
+	branches = !legit branches
+	graft = !legit graft
+	harvest = !legit harvest
+	publish = !legit publish
+	unpublish = !legit unpublish
+	sprout = !legit sprout
+	sync = !legit sync
+	switch = !legit switch
+	resync = !legit resync
