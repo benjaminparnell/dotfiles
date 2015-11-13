@@ -169,6 +169,10 @@ Plug 'derekwyatt/vim-scala'
 Plug 'mxw/vim-jsx'
 Plug 'elixir-lang/vim-elixir'
 Plug 'tpope/vim-flagship'
+
+  autocmd User Flags call Hoist("buffer", "%{ObsessionStatus()}")
+  autocmd User Flags call Hoist("window", "SyntasticStatuslineFlag")
+
 Plug 'tpope/vim-repeat'
 Plug 'ryanss/vim-hackernews'
 
@@ -202,6 +206,7 @@ set mouse=a
 " status line config
 set laststatus=2
 set showtabline=1
+set guioptions-=e
 
 set scrolljump=8
 set backspace=2   " make backspace behave
