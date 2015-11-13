@@ -48,7 +48,7 @@ Plug 'mattn/emmet-vim'
 Plug 'junegunn/goyo.vim'
 Plug 'ervandew/supertab'
 Plug 'Lokaltog/vim-easymotion'
-Plug 'juvenn/mustache.vim'
+Plug 'mustache/vim-mustache-handlebars'
 Plug 'tpope/vim-fugitive'
 
   map <Leader>g :Gstatus<CR>gg<c-n>
@@ -66,11 +66,6 @@ Plug 'fatih/vim-go', { 'for': 'go' }
   au FileType go nmap <leader>c <Plug>(go-coverage)
   au FileType go nmap <leader>gd <Plug>(go-doc)
   au FileType go nmap <leader>gb <Plug>(go-doc-browser)
-
-Plug 'terryma/vim-expand-region'
-
-  vmap v <Plug>(expand_region_expand)
-  vmap <C-v> <Plug>(expand_region_shrink)
 
 Plug 'editorconfig/editorconfig-vim'
 
@@ -144,9 +139,6 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-obsession'
 Plug 'gitignore'
 Plug 'matze/vim-move'
-
-  let g:move_key_modifier = 'C'
-
 Plug 'tpope/vim-salve', { 'for': 'clojure' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
@@ -184,6 +176,8 @@ Plug 'ryanss/vim-hackernews'
 
 Plug 'junegunn/vim-pseudocl'
 Plug 'junegunn/vim-oblique'
+Plug 'tpope/vim-sleuth'
+Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
 
