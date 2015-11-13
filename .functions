@@ -72,7 +72,11 @@ function unidecode() {
 # given location
 function v() {
   if [ $# -eq 0 ]; then
-    vim .
+    if [ -f "$PWD/Session.vim" ]; then
+      vim -S
+    else
+      vim .
+    fi
   else
     vim "$@"
   fi
