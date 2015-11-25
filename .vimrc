@@ -26,7 +26,6 @@ Plug 'scrooloose/nerdtree'
 
 
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-jdaddy'
 Plug 'plasticboy/vim-markdown'
 
   let g:vim_markdown_folding_disabled=1
@@ -115,11 +114,6 @@ Plug 'rstacruz/vim-closer'
 Plug 'wavded/vim-stylus'
 Plug 'junegunn/limelight.vim'
 Plug 'tpope/vim-endwise'
-Plug 'fmoralesc/vim-pad'
-
-  let g:pad#dir = '~/vim-pad/'
-  let g:pad#window_height = 10
-
 Plug 'geekjuice/vim-spec'
 
   map <Leader>t :call RunCurrentSpecFile()<CR>
@@ -182,6 +176,7 @@ Plug 'junegunn/vim-pseudocl'
 Plug 'junegunn/vim-oblique'
 Plug 'tpope/vim-sleuth'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'flazz/vim-colorschemes'
 
 call plug#end()
 
