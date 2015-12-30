@@ -12,9 +12,9 @@ trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
 [ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
 mkfifo "$PANEL_FIFO"
 
-bspc config top_padding $PANEL_HEIGHT
+bspc config bottom_padding $PANEL_HEIGHT
 bspc control --subscribe > "$PANEL_FIFO" &
-clock -sf 'S %A %H:%M'> "$PANEL_FIFO" &
+clock -sf 'S %c'> "$PANEL_FIFO" &
 
 spotify_artist() {
   if pgrep spotify > /dev/null; then
@@ -41,6 +41,6 @@ done &
 
 . panel_colors
 
-cat "$PANEL_FIFO" | panel_bar | lemonbar -g x$PANEL_HEIGHT -f "$PANEL_FONT_FAMILY" -f "$PANEL_FONT_FAMILY_2" -F "$COLOR_FOREGROUND" -B "$COLOR_BACKGROUND" | sh &
+cat "$PANEL_FIFO" | panel_bar | lemonbar -b -g x$PANEL_HEIGHT -f "$PANEL_FONT_FAMILY" -f "$PANEL_FONT_FAMILY_2" -F "$COLOR_FOREGROUND" -B "$COLOR_BACKGROUND" | sh &
 
 wait

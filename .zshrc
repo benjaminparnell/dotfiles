@@ -10,7 +10,7 @@ source ~/.aliases
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="pure"
+ZSH_THEME="ys"
 
 export EDITOR=vim
 
@@ -56,9 +56,10 @@ plugins=(git zsh-syntax-highlighting)
 
 # User configuration
 
-export PATH="$HOME/.rbenv/bin:/usr/local/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/.config/panel"
-export PATH="/usr/local/bin/bin:$HOME/npm-global/bin:$PATH"
-export PATH="$HOME/.bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$HOME/npm-global/bin:/usr/local/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/.config/panel"
+export PATH="/usr/local/bin/bin:$PATH"
+export PATH="$HOME/.bin:$HOME/.bin/lock:$PATH"
+export PATH="/home/benp/swift/swift-2.2-SNAPSHOT-2015-12-18-a-ubuntu14.04/usr/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh

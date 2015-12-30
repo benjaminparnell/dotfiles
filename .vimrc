@@ -72,16 +72,12 @@ Plug 'editorconfig/editorconfig-vim'
 
 Plug 'scrooloose/syntastic'
 
-  if filereadable(".jshintrc") && filereadable(".jscsrc")
-    let g:syntastic_javascript_checkers = ['jshint', 'jscs']
-  elseif filereadable(".eslintrc")
-    let g:syntastic_javascript_checkers = ['eslint']
-  else
-    let g:syntastic_javascript_checkers = ['standard']
-  endif
   let g:syntastic_go_checkers = ['golint']
   let g:syntastic_jade_checkers = ['jade_lint']
   let g:syntastic_aggregate_errors = 1
+  let g:syntastic_javascript_checkers = ['standard']
+
+Plug 'benjaminparnell/vim-switchblade'
 
 Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'

@@ -10,7 +10,7 @@ while read -r line ; do
 	case $line in
     X*)
       # spotify output
-      spotify="%{F$COLOR_FOCUSED_OCCUPIED_FG}%{B$COLOR_SPOTIFY_BG}%{A:bspc desktop -f music:} ${line#?}  %{A}%{B-}%{F-}"
+      spotify="%{F$COLOR_FOCUSED_OCCUPIED_FG}%{B$COLOR_TITLE_BG}%{A:bspc desktop -f IV:}${line#?}  %{A}%{B-}%{F-}"
       ;;
 		S*)
 			# clock output
@@ -28,7 +28,7 @@ while read -r line ; do
 			# battery output
       battery_life=$(acpi | head -n 1 | cut -d' ' -f4 | sed 's/.$//' | sed 's/.$//')
       status=$(acpi | head -n 1 | cut -d' ' -f3)
-      battery_colour=$COLOR_DATE_BG
+      battery_colour=$COLOR_TITLE_BG
 
       if [ $battery_life -lt 41 ]; then
         battery_colour=$COLOR_BATTERY_ORANGE
@@ -46,7 +46,7 @@ while read -r line ; do
 			;;
     I*)
       # current wireless network
-      wifi_network="%{F$COLOR_FOCUSED_OCCUPIED_FG}%{B$COLOR_WIFI_BG}%{A:wicd-gtk:} ${line#?}  %{A}%{B-}%{F-}"
+      wifi_network="%{F$COLOR_FOCUSED_OCCUPIED_FG}%{B$COLOR_TITLE_BG}%{A:wicd-gtk:} ${line#?} %{A}%{B-}%{F-}"
       ;;
 		W*)
 			# bspwm internal state
@@ -60,7 +60,7 @@ while read -r line ; do
 					M*)
 						# active monitor
 						if [ $num_mon -gt 1 ] ; then
-							wm_infos="$wm_infos %{F$COLOR_ACTIVE_MONITOR_FG}%{B$COLOR_ACTIVE_MONITOR_BG} ${name} %{B-}%{F-}  "
+							wm_infos="$wm_infos %{F$COLOR_ACTIVE_MONITOR_FG}%{B$COLOR_TITLE_BG} ${name} %{B-}%{F-}  "
 						fi
 						;;
 					m*)
@@ -71,7 +71,7 @@ while read -r line ; do
 						;;
 					O*)
 						# focused occupied desktop
-						wm_infos="${wm_infos}%{F$COLOR_FOCUSED_OCCUPIED_FG}%{B$COLOR_FOCUSED_OCCUPIED_BG}%{U$COLOR_UNDERLINE}%{+u} ${name} %{-u}%{B-}%{F-}"
+						wm_infos="${wm_infos}%{F$COLOR_FOCUSED_OCCUPIED_FG}%{B$COLOR_TITLE_BG}%{U$COLOR_UNDERLINE}%{+u} ${name} %{-u}%{B-}%{F-}"
 						;;
 					F*)
 						# focused free desktop
@@ -102,5 +102,5 @@ while read -r line ; do
 			done
 			;;
 	esac
-	printf "%s\n" "%{l}${wm_infos}%{c}${sys_infos}%{r}${vpn}${wifi_network}${spotify}${battery}"
+	printf "%s\n" "%{l}${wm_infos}%{c}%{r}${vpn}${wifi_network}${spotify}${battery}${sys_infos}"
 done
