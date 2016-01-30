@@ -53,6 +53,7 @@ Plug 'tpope/vim-fugitive'
   map <Leader>g :Gstatus<CR>gg<c-n>
   nnoremap <Leader>d :Gdiff<CR>
 
+Plug 'junegunn/gv.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'digitaltoad/vim-jade'
 Plug 'elzr/vim-json', { 'for': 'json' }
@@ -78,7 +79,6 @@ Plug 'scrooloose/syntastic'
   let g:syntastic_javascript_checkers = ['standard']
 
 Plug 'benjaminparnell/vim-switchblade'
-
 Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
 
@@ -132,10 +132,10 @@ Plug 'matze/vim-move'
 Plug 'tpope/vim-salve', { 'for': 'clojure' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
-" Reload the current namespace
-au FileType clojure nmap <Leader>r :Require<CR>
-" Reload all namespaces
-au FileType clojure nmap <Leader>R :Require!<CR>
+  " Reload the current namespace
+  au FileType clojure nmap <Leader>r :Require<CR>
+  " Reload all namespaces
+  au FileType clojure nmap <Leader>R :Require!<CR>
 
 Plug 'tpope/vim-dispatch'
 
@@ -173,6 +173,7 @@ Plug 'junegunn/vim-oblique'
 Plug 'tpope/vim-sleuth'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'flazz/vim-colorschemes'
+Plug 'mswift42/vim-themes'
 
 call plug#end()
 
@@ -322,3 +323,4 @@ map <F8> :setlocal spell! spelllang=en_gb<CR>
 " resize splits
 nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
+
