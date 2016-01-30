@@ -42,7 +42,7 @@ while read -r line ; do
         battery_colour=$COLOR_BATTERY_GREEN
       fi
 
-			battery="%{F$COLOR_FOCUSED_OCCUPIED_FG}%{B${battery_colour}} ${line#?}  %{B-}%{F-}"
+			battery="%{F$COLOR_FOCUSED_OCCUPIED_FG}%{B${battery_colour}}${line#?} %{B-}%{F-}"
 			;;
     I*)
       # current wireless network
