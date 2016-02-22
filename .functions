@@ -11,10 +11,6 @@ undock() {
   xrandr --output HDMI1 --off
 }
 
-lock() {
-  sudo vlock -an
-}
-
 # grep shorthands
 psgrep() { ps aux | grep -i $@ }
 hgrep() { history | grep -i $@ }
@@ -26,7 +22,7 @@ function f() {
 
 # Create a new directory and enter it
 function md() {
-  mkdir -p "$@" && cd "$@"
+  mkdir -p "$@" && cd $_
 }
 
 # Create a git.io short URL
@@ -73,12 +69,12 @@ function unidecode() {
 function v() {
   if [ $# -eq 0 ]; then
     if [ -f "$PWD/Session.vim" ]; then
-      vim -S
+      nvim -S
     else
-      vim .
+      nvim .
     fi
   else
-    vim "$@"
+    nvim "$@"
   fi
 }
 
