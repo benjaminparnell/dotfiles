@@ -60,6 +60,7 @@ export PATH="$HOME/.rbenv/bin:$HOME/npm-global/bin:/usr/local/bin:/usr/local/sbi
 export PATH="/usr/local/bin/bin:$PATH"
 export PATH="$HOME/.bin:$HOME/.bin/lock:$PATH"
 export PATH="/home/benp/swift/swift-2.2-SNAPSHOT-2015-12-18-a-ubuntu14.04/usr/bin:$PATH"
+export PATH="/home/benp/github/elixir/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -98,7 +99,6 @@ eval "$(rbenv init -)"
 
 PERL_MB_OPT="--install_base \"~/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=~/perl5"; export PERL_MM_OPT;
-test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
 
 unset MAILCHECK
 
