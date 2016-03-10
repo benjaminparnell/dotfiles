@@ -4,7 +4,7 @@ xset +fp $HOME/.fonts
 xset fp rehash
 
 # set wallpaper
-feh --bg-scale ~/Dropbox/Wallpapers/redmountains.jpg
+feh --bg-scale ~/Dropbox/Wallpapers/bench.jpg
 
 # touchpad config
 synclient PalmDetect=1 PalmMinWidth=5 PalmMinZ=20
