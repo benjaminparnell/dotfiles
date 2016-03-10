@@ -16,7 +16,7 @@ super + b
 super + {s,f}
 	bspc node -t {floating,fullscreen}
 
-super + {grave,Tab}
+super + Tab
 	bspc {node,desktop} -f last
 
 super + apostrophe
@@ -141,6 +141,11 @@ XF86AudioLowerVolume
   ~/.bin/volume -; \
   ~/.bin/popup volume: $(~/.bin/volume level)
 
+# show playing track
+super + grave
+  ~/.bin/music
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
+

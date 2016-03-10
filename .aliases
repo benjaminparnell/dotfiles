@@ -1,6 +1,6 @@
 alias tmux='tmux -2 -f ~/.tmux.conf'
 
-alias lock='dm-tool lock'
+# alias lock='dm-tool lock'
 
 alias wicdc='wicd-curses'
 

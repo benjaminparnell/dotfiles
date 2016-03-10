@@ -155,6 +155,9 @@ Plug 'tpope/vim-dispatch'
 
 Plug 'tpope/vim-classpath', { 'for': ['clojure', 'java'] }
 Plug 'paredit.vim'
+
+  au FileType clojure nnoremap ` :call PareditToggle()<CR>
+
 Plug 'tpope/vim-projectionist'
 
   " switch to the files alternate file
