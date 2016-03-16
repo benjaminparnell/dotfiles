@@ -3,8 +3,8 @@
 source ~/.config/globals
 
 if [ $(pgrep -cx panel) -gt 1 ] ; then
-	printf "%s\n" "The panel is already running." >&2
-	exit 1
+  printf "%s\n" "The panel is already running." >&2
+  exit 1
 fi
 
 trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
@@ -16,27 +16,14 @@ bspc config top_padding $PANEL_HEIGHT
 bspc subscribe > "$PANEL_FIFO" &
 clock -sf 'S %c'> "$PANEL_FIFO" &
 
-spotify_artist() {
-  if pgrep spotify > /dev/null; then
-    sp current | grep ^Artist | sed -e 's/Artist//' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//'
-  fi
-}
-
-spotify_track() {
-  if pgrep spotify > /dev/null; then
-    sp current | grep ^Title | sed -e 's/Title//' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//'
-  fi
-}
-
 while true; do
   battery_life=$(acpi -V | head -n 1 | cut -d' ' -f4)
-  wifi=$(panel_wifi)
+  wifi=$(essid | cut -c1-10)
   vpn=$(ls /var/run/openvpn 2>/dev/null | grep .pid | head -n 1 | xargs -I {} basename {} .pid)
-	echo "D" "${BATTERY_ICON} ${battery_life%?}" > "$PANEL_FIFO" &
-  echo "X" ${SPOTIFY_ICON} $(spotify_track) - $(spotify_artist)> "$PANEL_FIFO" &
+  echo "D" "${BATTERY_ICON} ${battery_life%?}" > "$PANEL_FIFO" &
   echo "I" "${WIFI_ICON} ${wifi}" > "$PANEL_FIFO" &
   echo "V" "${vpn}" > "$PANEL_FIFO" &
-	sleep 0.5s
+        sleep 0.5s
 done &
 
 . panel_colors
