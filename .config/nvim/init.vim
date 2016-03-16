@@ -29,8 +29,13 @@ Plug 'plasticboy/vim-markdown'
 
   let g:vim_markdown_folding_disabled=1
 
+Plug 'junegunn/vim-journal'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'junegunn/fzf.vim'
+
+  if has('nvim')
+    let $FZF_DEFAULT_OPTS .= ' --inline-info'
+  endif
 
   map <c-x><c-k> <Plug>(fzf-complete-word)
   imap <c-x><c-j> <Plug>(fzf-complete-file-ag)
@@ -38,14 +43,22 @@ Plug 'junegunn/fzf.vim'
 
   nnoremap <silent> <C-p> :Files<CR>
   nnoremap <silent> <Leader><Enter> :Buffers<CR>
+  nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
 
 Plug 'mattn/emmet-vim'
 
   let g:user_emmet_leader_key='<C-Z>'
 
 Plug 'junegunn/goyo.vim'
-Plug 'ervandew/supertab'
-Plug 'Lokaltog/vim-easymotion'
+Plug 'Shougo/deoplete.nvim'
+
+  let g:deoplete#enable_at_startup = 1
+  let g:deoplete#enable_smart_case = 1
+  let g:deoplete#disable_auto_complete = 1
+  inoremap <silent><expr> <C-x><C-o>
+    \ pumvisible() ? "\<C-n>" :
+    \ deoplete#mappings#manual_complete()
+
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'tpope/vim-fugitive'
 
@@ -56,7 +69,7 @@ Plug 'junegunn/gv.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'digitaltoad/vim-jade'
 Plug 'elzr/vim-json', { 'for': 'json' }
-Plug 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 
   au FileType go nmap <leader>i <Plug>(go-info)
@@ -78,6 +91,8 @@ Plug 'scrooloose/syntastic'
   let g:syntastic_javascript_checkers = ['standard']
   let g:syntastic_cpp_compiler = 'g++'
   let g:syntastic_cpp_compiler_options = '-std=c++11 -pthread'
+  let g:syntastic_always_populate_loc_list = 1
+  let g:syntastic_auto_loc_list = 1
 
 Plug 'benjaminparnell/vim-switchblade'
 Plug 'mattn/webapi-vim'
@@ -98,10 +113,7 @@ Plug 'junegunn/rainbow_parentheses.vim'
 
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-eunuch'
-Plug 'grep.vim'
 Plug 'ekalinin/Dockerfile.vim'
-Plug 'kshenoy/vim-signature'
-Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'copypath.vim'
 
   let g:copypath_copy_to_unnamed_register = 1
@@ -111,7 +123,7 @@ Plug 'rstacruz/vim-closer'
 Plug 'wavded/vim-stylus'
 Plug 'junegunn/limelight.vim'
 Plug 'tpope/vim-endwise'
-Plug 'geekjuice/vim-spec'
+Plug 'geekjuice/vim-spec', { 'for': ['javascript', 'ruby'] }
 
   map <Leader>t :call RunCurrentSpecFile()<CR>
   map <Leader>s :call RunNearestSpec()<CR>
@@ -125,18 +137,15 @@ Plug 'moofish32/vim-ex_test'
   au FileType elixir map <Leader>l :call RunLastTest()<CR>
   au FileType elixir map <Leader>a :call RunAllTests()<CR>
 
-Plug 'tommcdo/vim-exchange'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'chrisbra/Colorizer'
 
   let g:colorizer_auto_filetype='css,html,stylus,jade,less,sass'
 
 Plug 'vim-scripts/nginx.vim'
-Plug 'leafgarland/typescript-vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-obsession'
 Plug 'gitignore'
-Plug 'matze/vim-move'
 Plug 'tpope/vim-salve', { 'for': 'clojure' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
@@ -165,7 +174,6 @@ Plug 'tpope/vim-projectionist'
 
 Plug 'shime/vim-livedown'
 Plug 'szw/vim-g'
-Plug 'garyburd/go-explorer', { 'for': 'go' }
 Plug 'derekwyatt/vim-scala'
 Plug 'mxw/vim-jsx'
 Plug 'elixir-lang/vim-elixir'
@@ -175,16 +183,11 @@ Plug 'tpope/vim-flagship'
   autocmd User Flags call Hoist("window", "SyntasticStatuslineFlag")
 
 Plug 'tpope/vim-repeat'
-Plug 'ryanss/vim-hackernews'
-
-  nnoremap <Leader>hn :HackerNews<CR>
-
 Plug 'junegunn/vim-pseudocl'
 Plug 'junegunn/vim-oblique'
 Plug 'tpope/vim-sleuth'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'flazz/vim-colorschemes'
-Plug 'mswift42/vim-themes'
+Plug 'balaclark/cdprojectroot.vim'
 
 call plug#end()
 
@@ -194,54 +197,60 @@ syntax on
 let g:seoul256_background = 234
 colorscheme seoul256
 
-" Needed to make my colorscheme work in tmux
-set t_ut=
-
-set number
-set numberwidth=5
+" persist undos
+set undofile
+set undodir=~/.vim/undodir
 
 set ruler
 set cursorline
-
-" for normal people
 set mouse=a
-
-" status line config
-set laststatus=2
 set showtabline=1
-set guioptions-=e
-
-set scrolljump=8
-set backspace=2   " make backspace behave
-set expandtab
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set encoding=utf-8
-set colorcolumn=80
-set incsearch     " use incremental search
-set ignorecase
-set gdefault
-set noswapfile    " turn off swapfiles
-set showcmd       " show incomplete commands
-set shortmess=aIT
+set nu
+set autoindent
+set smartindent
 set lazyredraw
-set visualbell    " no beeps
-set autoread      " read in files when they change outside vim
-
-" faster mode switching
-set timeoutlen=1000 ttimeoutlen=0
-
-" display extra whitespace
+set laststatus=2
+set showcmd
+set visualbell
+set backspace=indent,eol,start
+set shortmess=aIT
+set colorcolumn=80
+set hidden
+set ignorecase smartcase
+set wildmenu
+set wildmode=full
+set tabstop=2
+set shiftwidth=2
+set expandtab smarttab
+set scrolloff=5
+set hlsearch
+set incsearch
+set noswapfile
+set autoread
+set timeoutlen=500
+set ttimeoutlen=0
 set list listchars=tab:»·,trail:·,nbsp:·
-
-" autocomplete with dictionary words when spell check is on
 set complete+=kspell
+set splitbelow
+set splitright
+set nostartofline
+
+augroup highlight_follows_focus
+    autocmd!
+    autocmd WinEnter * set cursorline
+    autocmd WinLeave * set nocursorline
+augroup END
+
+augroup highligh_follows_vim
+    autocmd!
+    autocmd FocusGained * set cursorline
+    autocmd FocusLost * set nocursorline
+augroup END
 
 augroup vimrcEx
   autocmd!
 
-  au BufWritePost vimrc,.vimrc nested if expand('%') !~ 'fugitive' | source % | endif
+  au BufWritePost vimrc,.vimrc,init.vim nested if expand('%') !~ 'fugitive' | source % | endif
   " When editing a file, always jump to the last known cursor position.
   " Don't do it for commit messages, when the position is invalid, or when
   " inside an event handler (happens when dropping a file on gvim).
@@ -294,22 +303,24 @@ noremap <Leader>bd :bd<CR>
 " run a command and then paste its output into a vim buffer
 noremap <Leader>nex :new<CR>!!
 
-" switch between tabs
-noremap <Leader>nt :bn<CR>
-noremap <Leader>pv :bp<CR>
+" Save
+inoremap <C-s>     <C-O>:update<cr>
+nnoremap <C-s>     :update<cr>
+nnoremap <leader>s :update<cr>
+nnoremap <leader>w :update<cr>
 
-" faster than :w
-nnoremap <Leader>w :w<CR>
-
-" better and faster than :q
-nnoremap <Leader>q :q<CR>
+" Quit
+inoremap <C-Q>     <esc>:q<cr>
+nnoremap <C-Q>     :q<cr>
+vnoremap <C-Q>     <esc>
+nnoremap <Leader>q :q<cr>
+nnoremap <Leader>Q :qa!<cr>
 
 " list buffers
 nnoremap <Leader>ls :Buffers<CR>
 
-" more natural split directions
-set splitbelow
-set splitright
+" make y behave like other capitals
+nnoremap Y y$
 
 " copy and paste to the system clipboard
 vmap <Leader>y "+y
@@ -331,7 +342,88 @@ map q: :q
 " toggle for spell checking
 map <F8> :setlocal spell! spelllang=en_gb<CR> 
 
-" resize splits
-nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
-nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
+" functions
 
+" ----------------------------------------------------------------------------
+" Todo
+" ----------------------------------------------------------------------------
+function! s:todo() abort
+  let entries = []
+  for cmd in ['git grep -n -e TODO -e FIXME -e XXX 2> /dev/null',
+            \ 'grep -rn -e TODO -e FIXME -e XXX * 2> /dev/null']
+    let lines = split(system(cmd), '\n')
+    if v:shell_error != 0 | continue | endif
+    for line in lines
+      let [fname, lno, text] = matchlist(line, '^\([^:]*\):\([^:]*\):\(.*\)')[1:3]
+      call add(entries, { 'filename': fname, 'lnum': lno, 'text': text })
+    endfor
+    break
+  endfor
+
+  if !empty(entries)
+    call setqflist(entries)
+    copen
+  endif
+endfunction
+command! Todo call s:todo()
+
+" ----------------------------------------------------------------------------
+" Help in new tabs
+" ----------------------------------------------------------------------------
+function! s:helptab()
+  if &buftype == 'help'
+    wincmd T
+    nnoremap <buffer> q :q<cr>
+  endif
+endfunction
+
+augroup vimrc_help
+  autocmd!
+  autocmd BufEnter *.txt call s:helptab()
+augroup END
+
+" ----------------------------------------------------------------------------
+" gv.vim
+" ----------------------------------------------------------------------------
+function! s:gv_expand()
+  let line = getline('.')
+  GV --name-status
+  call search('\V'.line, 'c')
+  normal! zz
+endfunction
+
+autocmd! FileType GV nnoremap <buffer> <silent> + :call <sid>gv_expand()<cr>
+
+" ----------------------------------------------------------------------------
+" goyo.vim + limelight.vim
+" ----------------------------------------------------------------------------
+let g:limelight_paragraph_span = 1
+let g:limelight_priority = -1
+
+function! s:goyo_enter()
+  if has('gui_running')
+    set fullscreen
+    set background=light
+    set linespace=7
+  elseif exists('$TMUX')
+    silent !tmux set status off
+  endif
+  " hi NonText ctermfg=101
+  Limelight
+endfunction
+
+function! s:goyo_leave()
+  if has('gui_running')
+    set nofullscreen
+    set background=dark
+    set linespace=0
+  elseif exists('$TMUX')
+    silent !tmux set status on
+  endif
+  Limelight!
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+nnoremap <Leader>G :Goyo<CR>
