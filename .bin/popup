@@ -8,9 +8,9 @@ source ~/.config/globals
 duration=3
 
 # define geometry
-barx=1600
-bary=50
+barx=1100
+bary=10
 barw=300
-barh=40
+barh=30
 
-(echo "   $@"; sleep ${duration}) | lemonbar -g ${barw}x${barh}+${barx}+${bary} -f "$PANEL_FONT_FAMILY" -F "$FFFFFF" -B "$COLOR_WIFI_BG"
+(echo "   $@"; sleep ${duration}) | lemonbar -g ${barw}x${barh}+${barx}+${bary} -f "$PANEL_FONT_FAMILY" -F "#FFFFFF" -B "$COLOR_BATTERY_RED"
