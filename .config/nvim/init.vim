@@ -409,7 +409,6 @@ function! s:goyo_enter()
     silent !tmux set status off
   endif
   " hi NonText ctermfg=101
-  Limelight
 endfunction
 
 function! s:goyo_leave()
@@ -420,7 +419,6 @@ function! s:goyo_leave()
   elseif exists('$TMUX')
     silent !tmux set status on
   endif
-  Limelight!
 endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
