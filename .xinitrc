@@ -4,7 +4,7 @@ xset +fp $HOME/.fonts
 xset fp rehash
 
 # set wallpaper
-feh --bg-scale ~/Dropbox/Wallpapers/wheat.jpg
+feh --bg-scale ~/Dropbox/Wallpapers/novigrad-dreaming.jpg
 
 # touchpad config
 synclient PalmDetect=1 PalmMinWidth=5 PalmMinZ=20
