@@ -16,5 +16,7 @@ alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 
 alias vtop="vtop --theme becca"
 
+alias l="k"
+
 SSHConfigRepo='~/.ssh/SSHConfiguration/'
 alias updateSsh="cd $SSHConfigRepo && git pull && cat ~/.ssh/personal $SSHConfigRepo/ssh_config.d/* > ~/.ssh/config && cd ~"
