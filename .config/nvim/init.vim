@@ -198,6 +198,7 @@ syntax on
 " color scheme
 let g:seoul256_background = 234
 colorscheme seoul256
+set t_ut=
 
 " persist undos
 set undofile
