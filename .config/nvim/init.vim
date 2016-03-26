@@ -188,6 +188,8 @@ Plug 'junegunn/vim-oblique'
 Plug 'tpope/vim-sleuth'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'balaclark/cdprojectroot.vim'
+Plug 'rust-lang/rust.vim'
+Plug 'cespare/vim-toml'
 
 call plug#end()
 
