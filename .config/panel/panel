@@ -14,7 +14,7 @@ mkfifo "$PANEL_FIFO"
 
 bspc config top_padding $PANEL_HEIGHT
 bspc subscribe > "$PANEL_FIFO" &
-clock -sf 'S %c'> "$PANEL_FIFO" &
+clock -sf 'S %H:%M'> "$PANEL_FIFO" &
 
 while true; do
   battery_life=$(acpi -V | head -n 1 | cut -d' ' -f4)
@@ -22,12 +22,12 @@ while true; do
   vpn=$(ls /var/run/openvpn 2>/dev/null | grep .pid | head -n 1 | xargs -I {} basename {} .pid)
   echo "D" "${BATTERY_ICON} ${battery_life%?}" > "$PANEL_FIFO" &
   echo "I" "${WIFI_ICON} ${wifi}" > "$PANEL_FIFO" &
-  echo "V" "${vpn}" > "$PANEL_FIFO" &
-        sleep 0.5s
+  echo "V" "${WARNING_ICON} ${vpn}" > "$PANEL_FIFO" &
+  sleep 0.5s
 done &
 
 . panel_colors
 
-cat "$PANEL_FIFO" | panel_bar | lemonbar -g 510x$PANEL_HEIGHT+1400+10 -f "$PANEL_FONT_FAMILY" -f "$PANEL_FONT_FAMILY_2" -F "$COLOR_FOREGROUND" -B "$COLOR_BACKGROUND" | sh &
+cat "$PANEL_FIFO" | panel_bar | lemonbar -g x$PANEL_HEIGHT -f "$PANEL_FONT_FAMILY" -f "$PANEL_FONT_FAMILY_2" -F "$COLOR_FOREGROUND" -B "$COLOR_BACKGROUND" | sh &
 
 wait

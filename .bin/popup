@@ -8,7 +8,7 @@ source ~/.config/globals
 duration=3
 
 # define geometry
-barx=1100
+barx=10
 bary=10
 barw=300
 barh=30

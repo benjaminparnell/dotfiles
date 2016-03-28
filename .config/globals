@@ -6,5 +6,5 @@ export SPOTIFY_ICON=$(echo -e '\uf1bc')
 export WIFI_ICON=$(echo -e '\uf1eb')
 export CLOCK_ICON=$(echo -e '\uf017')
 export BATTERY_ICON=$(echo -e '\uf240')
-
+export WARNING_ICON=$(echo -e '\uf071')
 
