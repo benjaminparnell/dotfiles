@@ -16,6 +16,7 @@
 .config/ranger/rifle.conf
 .config/ranger/rc.conf
 .config/spotify/Users/bento863-user/prefs
+.config/compton.conf
 scripts
 .bin
 .lein/profiles.clj

@@ -18,3 +18,4 @@ bspc rule -a feh state=floating border=off
 
 killall panel
 panel &
+compton &
