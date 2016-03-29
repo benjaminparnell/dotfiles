@@ -59,7 +59,6 @@ plugins=(git zsh-syntax-highlighting k)
 export PATH="$HOME/.rbenv/bin:$HOME/npm-global/bin:/usr/local/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/.config/panel"
 export PATH="/usr/local/bin/bin:$PATH"
 export PATH="$HOME/.bin:$HOME/.bin/lock:$PATH"
-export PATH="/home/benp/swift/swift-2.2-SNAPSHOT-2015-12-18-a-ubuntu14.04/usr/bin:$PATH"
 export PATH="/home/benp/github/elixir/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
