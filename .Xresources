@@ -15,9 +15,9 @@ xterm*faceName: Inconsolata:pixelsize=18
 ! seoul256 (dark) theme adapted for URxvt
 ! append the content of this file to your .Xresources
 URxvt*background: #1d1f21
-URxvt*foreground: #d0d0d0 
+URxvt*foreground: #d0d0d0
 URxvt*color0: #4e4e4e
-URxvt*color1: #d68787 
+URxvt*color1: #d68787
 URxvt*color2: #5f865f
 URxvt*color3: #d8af5f
 URxvt*color4: #85add4
