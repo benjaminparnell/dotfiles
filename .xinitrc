@@ -9,6 +9,10 @@ feh --bg-scale ~/Dropbox/Wallpapers/novigrad-dreaming.jpg
 # touchpad config
 synclient PalmDetect=1 PalmMinWidth=5 PalmMinZ=20
 
+# disable screensaver
+xset s noblank
+xset s off
+
 # map capslock to escape
 setxkbmap -option caps:swapescape
 
