@@ -177,6 +177,8 @@ Plug 'szw/vim-g'
 Plug 'derekwyatt/vim-scala'
 Plug 'mxw/vim-jsx'
 Plug 'elixir-lang/vim-elixir'
+Plug 'mattreduce/vim-mix'
+Plug 'lucidstack/hex.vim'
 Plug 'tpope/vim-flagship'
 
   autocmd User Flags call Hoist("buffer", "%{ObsessionStatus()}")
@@ -188,6 +190,8 @@ Plug 'junegunn/vim-oblique'
 Plug 'tpope/vim-sleuth'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'balaclark/cdprojectroot.vim'
+Plug 'rust-lang/rust.vim'
+Plug 'cespare/vim-toml'
 
 call plug#end()
 
@@ -196,6 +200,7 @@ syntax on
 " color scheme
 let g:seoul256_background = 234
 colorscheme seoul256
+set t_ut=
 
 " persist undos
 set undofile
@@ -409,7 +414,6 @@ function! s:goyo_enter()
     silent !tmux set status off
   endif
   " hi NonText ctermfg=101
-  Limelight
 endfunction
 
 function! s:goyo_leave()
@@ -420,7 +424,6 @@ function! s:goyo_leave()
   elseif exists('$TMUX')
     silent !tmux set status on
   endif
-  Limelight!
 endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()

@@ -177,6 +177,8 @@ Plug 'szw/vim-g'
 Plug 'derekwyatt/vim-scala'
 Plug 'mxw/vim-jsx'
 Plug 'elixir-lang/vim-elixir'
+Plug 'mattreduce/vim-mix'
+Plug 'lucidstack/hex.vim'
 Plug 'tpope/vim-flagship'
 
   autocmd User Flags call Hoist("buffer", "%{ObsessionStatus()}")
