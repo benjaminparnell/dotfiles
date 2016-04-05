@@ -56,7 +56,7 @@ plugins=(git zsh-syntax-highlighting k)
 
 # User configuration
 
-export PATH="$HOME/.rbenv/bin:$HOME/npm-global/bin:/usr/local/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/.config/panel"
+export PATH="$PATH:$HOME/.rbenv/bin:$HOME/npm-global/bin:/usr/local/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/.config/panel"
 export PATH="/usr/local/bin/bin:$PATH"
 export PATH="$HOME/.bin:$HOME/.bin/lock:$PATH"
 export PATH="/home/benp/github/elixir/bin:$PATH"
