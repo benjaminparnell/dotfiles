@@ -289,6 +289,9 @@ augroup END
 
 map ; :
 
+map H ^
+map L $
+
 " get off my lawn
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
