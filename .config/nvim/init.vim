@@ -92,7 +92,6 @@ Plug 'scrooloose/syntastic'
   let g:syntastic_cpp_compiler = 'g++'
   let g:syntastic_cpp_compiler_options = '-std=c++11 -pthread'
   let g:syntastic_always_populate_loc_list = 1
-  let g:syntastic_auto_loc_list = 1
 
 Plug 'benjaminparnell/vim-switchblade'
 Plug 'mattn/webapi-vim'
@@ -433,3 +432,5 @@ autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 nnoremap <Leader>G :Goyo<CR>
+
+" hi VertSplit                    guibg=NONE
