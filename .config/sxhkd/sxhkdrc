@@ -99,15 +99,15 @@ super + space
 # screenshot hotkeys
 # fullscreen
 alt + shift + 3
-  uguush -o mixtape -t -f
+  uguush -o plateau -t -f
 
 # selection
 alt + shift + 4
-  uguush -o mixtape -t -s
+  uguush -o plateau -t -s
 
 # current node
 alt + shift + 5
-  uguush -o mixtape -t -w
+  uguush -o plateau -t -w
 
 # spotify hotkeys
 # play/pause
