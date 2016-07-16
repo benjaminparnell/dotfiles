@@ -59,10 +59,14 @@ plugins=(git zsh-syntax-highlighting k)
 export PATH="$HOME/npm-global/bin:$PATH:$HOME/.rbenv/bin:/usr/local/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/.config/panel"
 export PATH="/usr/local/bin/bin:$PATH"
 export PATH="$HOME/.bin:$HOME/.bin/lock:$PATH"
-export PATH="/home/benp/github/elixir/bin:$PATH"
+export PATH="/home/benp/github/elixir/bin:/home/benp/.composer/vendor/bin:$PATH"
+export PATH="/home/benp/webstorm/bin:$PATH"
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
+
+source $HOME/.env
 
 setopt HIST_IGNORE_SPACE
 
