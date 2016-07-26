@@ -5,5 +5,5 @@ source ~/.config/globals
 
 info=$(sp metadata | grep --color=never -E "(title)|(album)|(artist)" | sed 's/^\(.\)/\U\1/' | column -t -s '|' | sed 's/^/    /')
 
-feh -x -g 160x160+10+40 $(sp art) &
-(echo -e "\n$info\n"; sleep 5 && killall feh) | dzen2 -e 'onstart=uncollapse' -l 5 -ta l -sa l -w 300 -x 180 -y 40 -fg "#FFFFFF" -bg "$COLOR_WIFI_BG" -fn "$PANEL_FONT_FAMILY"
+feh -x -g 160x160+10+35 $(sp art) &
+(echo -e "\n$info\n"; sleep 5 && killall feh) | dzen2 -e 'onstart=uncollapse' -l 5 -ta l -sa l -w 300 -x 180 -y 35 -fg "#FFFFFF" -bg "$COLOR_WIFI_BG" -fn "$PANEL_FONT_FAMILY"
