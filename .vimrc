@@ -18,11 +18,10 @@ Plug 'scrooloose/nerdtree'
 
   let NERDTreeShowHidden=1
 
-  silent! map <F12> :NERDTreeFind<CR>
+  silent! nmap - :NERDTreeFind<CR>
 
   let g:NERDTreeMapActivateNode="<F12>"
   let g:NERDTreeMapPreview="<F11>"
-  let g:NERDTreeWinSize=30
 
 Plug 'tpope/vim-commentary'
 Plug 'plasticboy/vim-markdown'
@@ -62,9 +61,11 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'tpope/vim-fugitive'
 
-  map <Leader>g :Gstatus<CR>gg<c-n>
+  nnoremap <Leader>g :Gstatus<CR>gg<c-n>
   nnoremap <Leader>d :Gdiff<CR>
+  nnoremap <Leader>b :Gblame<CR>
 
+Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/gv.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'digitaltoad/vim-jade'
@@ -92,7 +93,6 @@ Plug 'scrooloose/syntastic'
   let g:syntastic_cpp_compiler = 'g++'
   let g:syntastic_cpp_compiler_options = '-std=c++11 -pthread'
   let g:syntastic_always_populate_loc_list = 1
-  let g:syntastic_auto_loc_list = 1
 
 Plug 'benjaminparnell/vim-switchblade'
 Plug 'mattn/webapi-vim'
@@ -173,8 +173,6 @@ Plug 'tpope/vim-projectionist'
   nnoremap <F10> :A<CR>
 
 Plug 'shime/vim-livedown'
-Plug 'szw/vim-g'
-Plug 'derekwyatt/vim-scala'
 Plug 'mxw/vim-jsx'
 Plug 'elixir-lang/vim-elixir'
 Plug 'mattreduce/vim-mix'
@@ -192,6 +190,10 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'balaclark/cdprojectroot.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml'
+Plug 'ap/vim-buftabline'
+Plug 'justinmk/vim-dirvish'
+
+  let g:buftabline_numbers = 1
 
 call plug#end()
 
@@ -210,7 +212,7 @@ set ruler
 set cursorline
 set mouse=a
 set showtabline=1
-set nu
+" set number
 set autoindent
 set smartindent
 set lazyredraw
@@ -288,6 +290,9 @@ augroup END
 " keymaps
 
 map ; :
+
+map H ^
+map L $
 
 " get off my lawn
 nnoremap <Left> :echoe "Use h"<CR>
@@ -430,3 +435,4 @@ autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 nnoremap <Leader>G :Goyo<CR>
+
