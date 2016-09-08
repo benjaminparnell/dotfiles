@@ -99,3 +99,11 @@ function beammeup() {
 function buildWiki() {
   cd ~/clock/wiki && git pull origin master && find ./ -name "*.md" -type f -exec sh -c 'mkdir -p ./build/$(dirname "$0") && marked "$0" > ./build/"${0%.md}.html"' {} \; && cd -
 }
+
+# password protect a file with zip, using a password generated with openssl
+# arguments in the same order as the zip command, <output file name> <input file>
+function zipp () {
+  local password=$(openssl rand -base64 8)
+  zip -j -P $password $1 $2 > /dev/null
+  echo $password | clip
+}
