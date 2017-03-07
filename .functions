@@ -107,3 +107,7 @@ function zipp () {
   zip -j -P $password $1 $2 > /dev/null
   echo $password | clip
 }
+
+function mo () {
+  mongo $(mongo --quiet --eval 'db.getMongo().getDBNames().join("\n")' | grep -v '^test' | fzf --query=$1)
+}
