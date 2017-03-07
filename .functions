@@ -109,5 +109,5 @@ function zipp () {
 }
 
 function mo () {
-  mongo $(mongo --quiet --eval 'db.getMongo().getDBNames().join("\n")' | grep -v '^test' | fzf --query=$1)
+  mongo $(mongo --quiet --eval 'db.getMongo().getDBNames().join("\n")' | grep -v '^test' | sort | fzf --query=$1)
 }
