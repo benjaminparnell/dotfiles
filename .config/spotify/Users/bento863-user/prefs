@@ -1,7 +1,8 @@
-ui.seen.tray_icon=true
-ui.local_playlists_imported=true
-ui.sidebar_seen_at_fallback=1434107111
-ps.preferred-locale="en"
-apps.installed="twittermusic"
+lastfm.enabled=true
+lastfm.pass="e3a5539d992cdb823c1226652a0377cf"
+lastfm.user="benjaminparnell"
 ui.track_notifications_enabled=false
-ui.last_seen_product_type="premium"
+ps.post-open-graph=0
+app.player.volume=18349
+ui.seen.tray_icon=true
+gaia.attached_device_id="d97912bc6ea597d56251e510c7a93fbfb0917823"

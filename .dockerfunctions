@@ -42,15 +42,15 @@ rainbowstream() {
     jess/rainbowstream
 }
 
-pandoc() {
-  local file=${@: -1}
-  local lfile=$(readlink -m "$(pwd)/${file}")
-  local rfile=$(readlink -m "/$(basename $file)")
-  local args=${@:1:${#@}-1}
+# pandoc() {
+#   local file=${@: -1}
+#   local lfile=$(readlink -m "$(pwd)/${file}")
+#   local rfile=$(readlink -m "/$(basename $file)")
+#   local args=${@:1:${#@}-1}
 
-  docker run --rm \
-    -v ${lfile}:${rfile} \
-    -v /tmp:/tmp \
-    --name pandoc \
-    jess/pandoc ${args} ${rfile}
-}
+#   docker run --rm \
+#     -v ${lfile}:${rfile} \
+#     -v /tmp:/tmp \
+#     --name pandoc \
+#     jess/pandoc ${args} ${rfile}
+# }

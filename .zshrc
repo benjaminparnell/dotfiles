@@ -61,12 +61,15 @@ export PATH="/usr/local/bin/bin:$PATH"
 export PATH="$HOME/.bin:$HOME/.bin/lock:$PATH"
 export PATH="/home/benp/github/elixir/bin:/home/benp/.composer/vendor/bin:$PATH"
 export PATH="/home/benp/webstorm/bin:$PATH"
+export PATH="/home/benp/github/alacritty/target/release:$PATH"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 
 source $HOME/.env
+
+source $HOME/.cargo/env
 
 setopt HIST_IGNORE_SPACE
 
@@ -97,6 +100,7 @@ eval `keychain --quiet --eval id_rsa`
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 eval "$(rbenv init -)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 [[ -s "~/.gvm/scripts/gvm" ]] && source "~/.gvm/scripts/gvm"
 
@@ -111,3 +115,5 @@ export KEYTIMEOUT=1
 export _JAVA_AWT_WM_NONREPARENTING=1
 # Hook for desk activation
 [ ! -z "$DESK_ENV" ] && source "$DESK_ENV"
+
+export PATH="$HOME/.yarn/bin:$PATH"

@@ -20,3 +20,5 @@ alias l="k"
 
 SSHConfigRepo='~/.ssh/SSHConfiguration/'
 alias updateSsh="cd $SSHConfigRepo && git pull && cat ~/.ssh/personal $SSHConfigRepo/ssh_config.d/* > ~/.ssh/config && cd ~"
+
+alias gbf='git checkout $(git branch | grep -v "^*" | fzf)'

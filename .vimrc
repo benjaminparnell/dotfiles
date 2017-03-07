@@ -28,7 +28,6 @@ Plug 'plasticboy/vim-markdown'
 
   let g:vim_markdown_folding_disabled=1
 
-Plug 'junegunn/vim-journal'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'junegunn/fzf.vim'
 
@@ -70,7 +69,8 @@ Plug 'junegunn/gv.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'digitaltoad/vim-jade'
 Plug 'elzr/vim-json', { 'for': 'json' }
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'othree/yajs.vim'
+Plug 'othree/es.next.syntax.vim'
 Plug 'fatih/vim-go', { 'for': 'go' }
 
   au FileType go nmap <leader>i <Plug>(go-info)
@@ -114,11 +114,6 @@ Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-eunuch'
 Plug 'ekalinin/Dockerfile.vim'
-Plug 'copypath.vim'
-
-  let g:copypath_copy_to_unnamed_register = 1
-
-Plug 'terryma/vim-multiple-cursors'
 Plug 'rstacruz/vim-closer'
 Plug 'wavded/vim-stylus'
 Plug 'junegunn/limelight.vim'
@@ -190,10 +185,6 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'balaclark/cdprojectroot.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml'
-Plug 'ap/vim-buftabline'
-Plug 'justinmk/vim-dirvish'
-
-  let g:buftabline_numbers = 1
 
 call plug#end()
 
@@ -352,6 +343,8 @@ map q: :q
 " toggle for spell checking
 map <F8> :setlocal spell! spelllang=en_gb<CR> 
 
+nnoremap = :bd<CR>
+
 " functions
 
 " ----------------------------------------------------------------------------
@@ -436,3 +429,17 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 nnoremap <Leader>G :Goyo<CR>
 
+if has("nvim")
+  map <Leader>, :terminal tig status<CR>
+endif
+
+" ----------------------------------------------------------------------------
+" fzf.vim
+" ----------------------------------------------------------------------------
+
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
