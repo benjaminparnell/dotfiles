@@ -1,32 +1,42 @@
-docked() {
+# vi:syntax=sh
+
+docked () {
+  # Connect to monitor
   xrandr --output HDMI1 --auto --same-as eDP1
+  # Set laptop backlight to 0
   xbacklight -set 0
+  # Swap capslock and escape (called again incase a new keyboard is plugged in)
   setxkbmap -option caps:swapescape
+  # Tell acpi we are now mirroring, so the laptop won't go to sleep when you
+  # shut it. Effectively "clamshell" mode.
   echo 1 > /home/benp/mirroring
 }
 
-undock() {
+undock () {
+  # Disconnect the monitor
   xrandr --output HDMI1 --off
+  # Set the laptop backlight to 70
   xbacklight -set 70
+  # Tell acpi we are no longer mirroring so the laptop will sleep when you shut it.
   echo 0 > /home/benp/mirroring
 }
 
 # grep shorthands
-psgrep() { ps aux | grep -i $@ }
-hgrep() { history | grep -i $@ }
+psgrep () { ps aux | grep -i $@ }
+hgrep () { history | grep -i $@ }
 
 # find shorthand
-function f() {
+f () {
     find . -name "$1"
 }
 
 # Create a new directory and enter it
-function md() {
+md () {
   mkdir -p "$@" && cd $_
 }
 
 # Create a git.io short URL
-function gitio() {
+gitio () {
   if [ -z "${1}" -o -z "${2}" ]; then
     echo "Usage: \`gitio slug url\`"
     return 1
@@ -34,13 +44,13 @@ function gitio() {
   curl -i http://git.io/ -F "url=${2}" -F "code=${1}"
 }
 
-# Copy w/ progress
+# Copy with progress
 cp_p () {
   rsync -WavP --human-readable --progress $1 $2
 }
 
 # get gzipped size
-function gz() {
+gz () {
   echo "orig size    (bytes): "
   cat "$1" | wc -c
   echo "gzipped size (bytes): "
@@ -48,25 +58,25 @@ function gz() {
 }
 
 # All the dig info
-function digga() {
+digga () {
   dig +nocmd "$1" any +multiline +noall +answer
 }
 
 # Escape UTF-8 characters into their 3-byte format
-function escape() {
+escape () {
   printf "\\\x%s" $(printf "$@" | xxd -p -c1 -u)
-  echo # newline
+  echo
 }
 
 # Decode \x{ABCD}-style Unicode escape sequences
-function unidecode() {
+unidecode () {
   perl -e "binmode(STDOUT, ':utf8'); print \"$@\""
-  echo # newline
+  echo
 }
 
 # `v` with no arguments opens the current directory in Vim, otherwise opens the
 # given location
-function v() {
+v () {
   if [ $# -eq 0 ]; then
     if [ -f "$PWD/Session.vim" ]; then
       nvim -S
@@ -78,36 +88,30 @@ function v() {
   fi
 }
 
-# backup the enterprise!
-function beammeup() {
-  sudo rsync -av --delete --progress -e ssh \
-    --exclude=node_modules/ \
-    --exclude=/benp/Videos/ \
-    --exclude=/benp/Music/ \
-    --exclude=/benp/Dropbox/ \
-    --exclude=/benp/.cache/ \
-    --exclude=/benp/.rbenv/ \
-    --exclude=/benp/.npm/ \
-    --exclude=/benp/.gvm/ \
-    --exclude=/benp/.config/google-chrome/ \
-    --exclude=/benp/.config/chromium/ \
-    --exclude=/benp/Downloads/ \
-    --exclude=/benp/VirtualBox\ VMs/ \
-    ~ root@192.168.1.118:/volume1/NetBackup/enterprise/
-}
-
-function buildWiki() {
-  cd ~/clock/wiki && git pull origin master && find ./ -name "*.md" -type f -exec sh -c 'mkdir -p ./build/$(dirname "$0") && marked "$0" > ./build/"${0%.md}.html"' {} \; && cd -
+# Build the clock wiki into a tree of HTML documents using marked
+buildWiki () {
+  cd ~/clock/wiki
+  git pull origin master
+  find ./ -name "*.md" -type f -exec sh -c 'mkdir -p ./build/$(dirname "$0") && marked "$0" > ./build/"${0%.md}.html"' {} \;
+  cd -
 }
 
 # password protect a file with zip, using a password generated with openssl
 # arguments in the same order as the zip command, <output file name> <input file>
-function zipp () {
+zipp () {
   local password=$(openssl rand -base64 8)
   zip -j -P $password $1 $2 > /dev/null
   echo $password | clip
 }
 
-function mo () {
+# Connect to the local MongoDB server using fzf to select which db to connect to
+# Optionally takes an argument to start the selection with
+mo () {
   mongo $(mongo --quiet --eval 'db.getMongo().getDBNames().join("\n")' | grep -v '^test' | sort | fzf --query=$1)
+}
+
+# Checkout a git branch using fzf to select the branch
+# Optionally takes an argument to start the selection with
+fco () {
+  git checkout $(git branch | grep -v "^*" | fzf --query=$1)
 }

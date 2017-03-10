@@ -4,6 +4,7 @@ function clearUpTestDbs() {
   })
 }
 
+clearUpTestDbs()
 /*
  *
  * Mongo-Hacker
